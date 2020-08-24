@@ -20,6 +20,12 @@ var ul = generateNode('ul', {id: 'list'}, [
 ])
 
 // 添加render方法
+/* 
+处理三个api
+createElement  tagName
+setAttribute  props
+appendChild  children
+*/
 Element.prototype.render = function () {
   var el = document.createElement(this.tagName)
   var props = this.props

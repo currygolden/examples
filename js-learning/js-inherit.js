@@ -66,6 +66,11 @@ Function.proptype.call2 = function(context) {
 // 原型链继承的属性会被构造函数重写？
 // 这是否和new 一个对象有关
 
+function combineInherint() {
+  // call一次parent
+  Parent.call(this,arguments)
+}
+combineInherint.prototype = new Parent()
 
 // 模拟实现new的过程
 // new()，可以访问私有和原型链的属性，并且返回一个对象，支持传参
@@ -100,6 +105,22 @@ _create = function (o) {
 /* 
   es6 继承 http://es6.ruanyifeng.com/#docs/class-extends
 */
+class Parent {
+  constructor(name,age) {
+    this.name = name
+    this.age = age
+  }
+  hello() {
+    
+  }
+}
+class Child extends Parent {
+  constructor(name,age,color) {
+    // 必须先super才可以使用this
+    super(x,y) // 继承父类的哪些属性
+    this.color = color
+  }
+}
 
 
 /* 

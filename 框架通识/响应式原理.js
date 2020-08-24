@@ -1,3 +1,7 @@
+/* https://ustbhuangyi.github.io/vue-analysis/v2/extend/tansition.html#entering
+  这里 打算准备一些亮点
+  
+*/
 /* 
 模拟实现 observe 函数
 */
@@ -37,6 +41,7 @@ function defineReactive (obj,key,value) {
 class Dep {
   constructor () {
     // 这是用来保存watcher的数组
+    // watcher 实际是一个函数或者表达式
     this.subs = []
   }
   addSubs (sub) {

@@ -134,6 +134,7 @@ function rangeDay(day1, day2) {
 }
 
 // 用 setTimeout 模拟 interval
+
 setTimeout(function func(){
   setTimeout(() => {
     func()
@@ -313,7 +314,7 @@ function handleUrl(str = '') {
   return strList[3]
 }
 
-
+// 返回两数之和 等于目标值
 function addNum(nums = [], target = n) {
   for (let i = 0; i < nums.length; i++) {
     let val = nums[i]
@@ -324,6 +325,334 @@ function addNum(nums = [], target = n) {
     }
   }
 }
+
+/* 实现链式调用
+  promise支持
+  比如 js 字符串函数支持
+  webpack
+
+*/
+ function ChainStuff() {
+   this.a = 1
+   this.b = 2
+ }
+ // 这里用箭头函数就会导致问题
+ ChainStuff.prototype.speak = function() {
+    console.log(this.a)
+    return this
+ }
+ ChainStuff.prototype.say = function() {
+  console.log(this.b)
+  return this
+}
+new ChainStuff().speak().call()
+
+
+/* 
+  实现函数的curry,简单介绍场景
+  感觉没有实际场景
+*/
+  function hackCurry() {
+
+  }
+
+
+/* lodash.get
+  实现连续取值的兼容 | 避免报错
+  正则替换 | for of 遍历数组
+*/
+  function hackLodashGet(source, path, defaultValue) {
+    // 处理路径成数组的格式，替换数字
+    const pathArr = path.replace(/\[(\d+)\]/g, ".$1").split('.') || []
+    let result = source || {}
+    for (let p of pathArr) {
+       result = Object(result[p]) 
+       if (result == undefined) {
+         return defaultValue
+       }
+    }
+  }
+
+/* 
+  实现发布订阅模式
+  与观察者模式对比，存在一个调度中心
+  参考vue的组件通信事件机制
+*/
+  class pubSub {
+    // 调度中心
+    constructor() {
+      // key: eventName, value: []
+      this.dispatcher = {}
+    }
+    // 监听
+    on(eventName, fn) {
+      this.dispatcher[eventName] = this.dispatcher[eventName] || []
+      // 同一个事件可以有多个监听者
+      this.dispatcher[eventName].push(fn)
+    }
+    // 通知更新
+    emit(eventName, data) {
+      this.this.dispatcher[eventName].forEach(fn => {
+        fn(data)
+      })
+    }
+    // 清除订阅
+    off(eventName, fn) {
+      // 订阅数组中去掉 fn
+      if (this.dispatcher[eventName]) {
+        const newCache = this.dispatcher[eventName].filter(item => item !== fn)
+        this.dispatcher[eventName] = newCache
+      }
+    }
+  }
+
+  /* 
+    平级数组转树
+    树转平级数组
+  */
+var list = [
+  {
+    id: 1,
+    vaule: 2,
+    parentId: ''
+  },
+  {
+    id: 2,
+    vaule: 2,
+    parentId: 1
+  },
+  {
+    id: 3,
+    vaule: 2,
+    parentId: 1
+  },
+  {
+    id: 4,
+    vaule: 2,
+    parentId: 3
+  },
+  {
+    id: 5,
+    vaule: 2,
+    parentId: 2
+  },
+  {
+    id: 6,
+    vaule: 2,
+    parentId: 3
+  }
+]
+/* 
+  DFS/BFS都可以
+  借助map
+*/
+  function arrToTree(list = []) {
+    // 构建node
+    let root = list[0] || {}
+    list.shift()
+  
+    let tree = {
+      id: root.id,
+      value: root.value,
+      children: list.length > 0 ? getTreeArr(list, root.id) : []
+    }
+    return tree
+  }
+  function getTreeArr(list = [], id) {
+    let res = []
+    let len = list.length || 0
+    for (let i = 0; i < len; i++) {
+      let node = list[i] || {}
+      if (node.parentId === id) {
+        const obj = Object.assign({}, node, {
+          children: getTreeArr(list, node.id)
+        })
+        res.push(...obj)
+      }
+    }
+    return res
+  }
+
+/* 
+    遍历dom树，打印节点信息和层级
+*/
+  function getHtmlMes(obj, id = 1) {
+    const rootObj = document.getElementById('aim')
+    let quene = []
+    let res = []
+    quene.push(rootObj)
+
+    while(quene.length) {
+      let tmpObj = quene.shift() || {}
+      let tagName = tmpObj.tagName || ''
+      let className = tmpObj.className || ''
+      res.push({
+        tagName,className,id
+      })
+      let tmpChildren = Array.from(tmpObj.children) || []
+      if (tmpChildren.length) {
+        tmpChildren.forEach(item => {
+          quene.push(item)
+        })
+        id++
+      }
+    }
+    return res
+  }
+
+  /* 
+  树转平级数据
+  BFS遍历的结构非常清晰
+  */
+  function treeToArr(obj) {
+    let quene = [].push(obj)
+    let res = []
+    
+    while(quene.length) {
+      let tmpObj = quene.shift() || {}
+      const resObj = {
+        "id": '',
+        "pId": '',
+        "name": '',
+        "open": ''
+      } = tmpObj
+      res.push(resObj)
+      let children = tmpObj.children || []
+      if (tmpObj.children) {
+        tmpObj.children.forEach(item => {
+          quene.push(item)
+        })
+      }
+    }
+    return res
+  }
+
+  var obj = {
+    id: 1,
+    pId: 2,
+    name: '111',
+    open: false,
+    children: [
+      {
+        id: 1,
+        pId: 2,
+        name: '111',
+        open: false,
+        children: [
+          {
+            id: 1,
+            pId: 2,
+            name: '111',
+            open: false,
+          }
+        ]
+      },
+      {
+        id: 1,
+        pId: 2,
+        name: '111',
+        open: false,
+        children: [
+          {
+            id: 1,
+            pId: 2,
+            name: '111',
+            open: false
+          }
+        ]
+      }
+    ]
+  }
+
+  /* 
+  点击标签，打印标签名称
+  参考 https://juejin.im/post/6844903731079675917 了解dom事件机制
+  */
+ function sayDomName(e) {
+    if (!e) return
+    console.log(e.target.nodeName)
+ }
+ document.getElementById('test').addEventListener('click', sayname, false)
+
+  /* 
+  按钮提交，接口防止重复调用
+  特别是在订单提交的场景，和防抖还是有区别
+  加锁，类似于将按钮loading的方法
+  */
+  async function sentOnce() {
+    if (this.isSent) return
+
+    await function handleSent() {
+      this.isSent = true
+    }
+  }
+
+  /* 
+  增删dom元素的class
+  element.classList 本身是只读的，但是你可以使用 add() 和 remove() 方法修改它
+  */
+ function addClass(ele, str) {
+  // 先判断有无
+  if(!hasClass(ele, str)) {
+    ele.classList.add(str)
+  }
+ }
+
+ function hasClass(ele, str) {
+  let res = false
+  const tmpList = ele.classList || []
+  if (tmpList.contain(str)) {
+    res = true 
+  }
+  return res
+ }
+
+ /* 
+ 实现倒计时功能
+ 1. 计算间隔时间的d/h/m/s
+ 2. 对定时器的理解
+ 3. 如何用 setTimeout 模拟 setInterval
+    setTimeout + 递归也可以实现
+ */
+
+ // 小于0 补齐
+function addZero(i) {
+  return +i < 10 ? `0${i}` : `${i}`
+}
+function countDown() {
+  var nowTime = new Date()
+  var endTime = new Date("2020/10/25, 18:19:19")
+  // 获取间隔秒的时间
+  var leftTime = parseInt((endTime.getTime() - nowTime.getTime()) /1000) 
+  // 计算日期
+  var d = parseInt(leftTime / (24*60*60))
+  var h = parseInt(leftTime % (24*60*60) /(60*60))
+  var m = parseInt(leftTime % (60*60) / 60)
+  var ms = parseInt(leftTime % 60)
+  d = addZero(d)
+  h = addZero(h)
+  m = addZero(m)
+  let str = `活动倒计时${d}天${h}时${m}分${ms}秒`
+  document.querySelector('.check-img').innerHTML = str
+}
+setInterval(() => {
+  countDown()
+},1000)
+// 方法2
+function fn() {
+  setTimeout(() => {
+    fn()
+  }, time)
+}
+
+/* 
+ 判断html的标签是否闭合
+
+*/
+
+
+
+
 
 
 // 扫描文件，批量读取并上传（创建读写流），结合webpack配置cdn
@@ -356,8 +685,12 @@ function myWebpackLoader(suource) {
 /* 
 plugin 实现参考
 https://champyin.com/2020/01/12/%E6%8F%AD%E7%A7%98webpack-plugin/
-
+vue-admin项目已实现
 */
+
+
+
+
 
 
 

@@ -24,22 +24,24 @@ JSON.parse(JSON.stringify(obj))
 
 // eg1:浅复制
 function shallowClone(source) {
-  var target = {}
-  // 原型上的属性需要排除
-  for (var key in source) {
-    // 对象自身的可枚举属性
-    // 引用类型不一定是obj
-    if (Object.prototype.hasOwnProperty.call(source, key)) {
-      target[key] = source[key]
+  if (typeof source === 'object' || source !== null) {
+    var target = Array.isArray(source) ? [] : {}
+    // 原型上的属性需要排除
+    for (var key in source) {
+      // 对象自身的可枚举属性
+      // 引用类型不一定是obj
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key]
+      }
     }
-  }
-  return target
+    return target
+    }
 }
 
 /* 
 考虑： 1入参类型
       2递归处理
-      3循环引用
+      3循环引用 设置weakMap
       4递归爆栈
        
 */

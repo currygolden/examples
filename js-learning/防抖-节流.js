@@ -7,6 +7,7 @@
 4: 取消防抖
 
 主要思路就是先清除定时器，在开启定时器
+二者都有关于头尾是否执行的处理
 */
 
 function debounce(func, time) {
@@ -17,6 +18,32 @@ function debounce(func, time) {
     var args = arguments
     clearTimeout(timeout)
     timeout = setTimeout(func.apply(context,args), time)
+  }
+}
+
+// v2 判断是否立即执行,添加返回值
+function debounce2(func, time, immediate) {
+  var timeout
+  var result
+
+  return function() {
+    var context = this
+    var args = arguments || {}
+    if (immediate) {
+      // 需要判断是否执行过
+      var callNow = !timeout
+      // 不管是否立即执行，都要添加/取消定时器
+      timeout = setTimeout(function() {
+        timeout = null
+      }, time)
+      // 若不存在定时器，则立即执行
+      // 同步操作才可以拿到返回值
+      if (callNow) result = func.apply(this,args)
+    } else {
+      // 正常添加定时器
+    }
+
+    return result
   }
 }
 
@@ -67,12 +94,62 @@ function throttle2(func, time) {
   1: 布局高度 < 卷去高度 + 窗口高度 开始显示
   2: 展示的高度 < 窗口高度
   3: 利用 IntersectionObserver 判断是否在视口中
+  4: 获取dom元素的dataset 自定义属性   :data-id=123  dataset.id = 123
   一些高度值
   clientHeight: 窗口高度
-  offsetTop: 默认布局时距离顶部高度
+  offsetTop: 相对于offsetParent的距离，这个距离需要累加才可以拿到绝对距离
   scrollHeight: 滚动卷曲的高度
   getBoundingClientRect： 可以获取4个方向的值
+
+  由于涉及到频繁取高度值，所以需要限制执行频率
+  这一类滚动，高度的api貌似都可以优化成 IntersectionObserver
+  参考： https://juejin.im/post/6844903874302574599
 */
+var imgs = document.querySelectorAll(imgs) || []
+function lazyLoad1(imgs) {
+  // s+h > offsetTop
+  const H = document.documentElement.clientHeight
+  const S = document.documentElement.scrollTop
+  // 这种写法是考虑到存在父元素存在定位，一般直接取
+  // 参考 https://www.cnblogs.com/xiaohuochai/p/5828369.html
+  const getOffsetTop = (e) => {
+    const T = e.offSetTop
+    while(e = e.offsetParent) {
+      T += e.offSetTop
+    }
+    return T
+  }
+  // someKey 中保留真实的图片地址
+  for (let item of imgs) {
+    if (H + S + 100 > item.offsetTop) {
+      item.src = item.someKey
+    }
+  }
+}
+
+function lazyLoad2(imgs) {
+  // 回调中是所有监听实例,是一个dom对象
+  const io = new IntersectionObserver((instances) => {
+    instances && instances.forEach(item => {
+      const img = item.target
+      // 获取展示的比率
+      const showRatio = item.intersectionRatio
+      if (showRatio > 0 && showRatio < 1) {
+        if (!img.src) {
+          img.src = img.dataset.src
+        }
+      }
+      // 取消观测
+      img.onload = img.onerror = () => {
+        item.unobserve(item)
+      }
+    })
+  })
+  // 开始观测
+  imgs.forEach((img) => {
+    io.observe(img)
+  })
+}
 
 
 
@@ -129,3 +206,4 @@ function throttle2(func, time) {
       board.style.left = parseInt(board.style.left) + width + "px";
   }
 })()
+

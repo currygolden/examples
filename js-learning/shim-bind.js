@@ -76,3 +76,9 @@ function shimNew() {
   return typeof ret === 'object' ? ret : resObj
 }
 
+/* 
+模拟实现 object.create()
+属于对象创建方式
+*/
+
+

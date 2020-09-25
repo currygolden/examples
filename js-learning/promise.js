@@ -144,9 +144,31 @@ function resolvePromise(promise2, res, resolve, reject) {
 /* 
   实现promise-all
   当所有实例均为fulfilled,reslove全部实例的参数
+  返回一个promise 对象
+  回调参数对应
 */
 Promise.all = function(promiseArr) {
-  
+  return new Promise((resolve, reject) => {
+    let resArr = []
+    let i = 0
+    // 参数及顺序处理
+    function handleData(obj, idx) {
+      resArr[i] = obj
+      i++
+      if (i === promiseArr.length) {
+        // 这一步带上结果
+        resolve(resArr)
+      }
+    }
+    promiseArr.forEach((promiseObj, index) => {
+      promiseObj.then(res => {
+        handleData(res, index)
+      }, fail).catch(res => {
+        // 也可以把reject作为失败的回调
+        reject()
+      })
+    })
+  })
 }
 
 /* 
@@ -192,3 +214,25 @@ urls: 所有的待访问url
 async function multiRequest(urls, maxNum) {
   
 }
+
+/* 
+实现 a, a+b , a+2b的间隔执行
+停止以上间隔
+*/
+function myInterval(fn, a, b) {
+  this.a = a
+  this.b = b
+  this.time = 0
+  this.handle = -1
+  // 开始
+  this.start = () => {
+    this.handle = setTimeout(() => {
+      fn()
+      this.time++
+    }, this.a + this.time * this.b)
+  }
+  this.cancel = () => {
+    clearTimeout(this.handle)
+  }
+}
+

@@ -33,6 +33,10 @@ some practice
 - http://www.pingan8787.com/page/1/ 不知名博客作者
 - https://juejin.im/user/3808363978439005/posts 一些业务总结，比较杂乱
 - https://juejin.im/post/6844903952761225230 比较多的实践案例
+- https://github.com/godbasin/godbasin.github.io
+
+
+- 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510
 
 
 
@@ -51,8 +55,7 @@ some practice
 - 微前端的例子：https://juejin.im/post/6874213637687345159
 - 做配置型业务： quark-H5 | doring-H5 | form-generator
   1. https://github.com/JakHuang/form-generator
-  2.
-- 接手过的项目 ops | m-bike
+- 接手过的项目 ops | m-bike | ml-bike
 
 
 

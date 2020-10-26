@@ -1,3 +1,5 @@
+import { nextTick } from "q";
+
 /* 
 参考文章 https://juejin.im/post/5afd2ff26fb9a07aaa11786c
 https://segmentfault.com/a/1190000018428848
@@ -210,9 +212,46 @@ urls: 所有的待访问url
 要求最大并发数 maxNum
 每当有一个请求返回，就留下一个空位，可以增加新的请求
 所有请求完成后，结果按照 urls 里面的顺序依次打出
+
+
+思路： 并发请求跟promise.all无关  普通的循环都可以做到
+
 */
 async function multiRequest(urls, maxNum) {
-  
+  let result = new Array(urls.length).fill(false)
+  let sum = urls.length
+  let count = 0
+  return new Promise((resolve, reject) => {
+    // 请求最大数
+    while(count < maxNum) {
+      next()
+    }
+    // 定义请求函数
+    function next() {
+      // 这种赋值语句有坑
+      let current = count++
+      // 判断是否全部结束
+      if (current >= sum) {
+        !result.includes(false) && resolve(result)
+      }
+      let url = urls[current]
+      console.log('start' + current, new Date().toLocaleDateString())
+      fetch(url).then((res) => {
+        console.log('end' + current, new Date().toLocaleDateString())
+        result[current] = res
+        if (current < sum) {
+          next()
+        }
+      })
+      .catch((err) => {
+        console.log('end' + current, new Date().toLocaleDateString())
+        result[current] = res
+        if (current < sum) {
+          next()
+        }
+      })
+    }
+  })
 }
 
 /* 

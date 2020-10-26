@@ -650,6 +650,11 @@ function fn() {
 
 */
 
+String.prototype.trim() = function() {
+  var reg = /^\s?\s$/
+  return this.replace(reg, '')
+}
+
 
 
 
@@ -896,6 +901,32 @@ function generateTree(pre, mid) {
     return res
   }
 
+  /* 
+  二叉树的路径求和
+  提供二叉树，固定值，获取符合要求的路径
+  */
+ const getSumPath = (node, sum) => {
+  let res = []
+  res.push(node.val)
+  if (!node) return []
+  // 终点
+  if (!node.left && !node.right) {
+    return node.val === sum
+  }
+  // 递归处理
+  return getSumPath(node.left, sum - node.val) || getSumPath(node.right, sum - node.val)
+ }
+
+
+  /* 
+  获取二叉树的最大深度
+  */
+
+  const getMaxDepth = (node, depth = 0) => {
+    if (!node) return depth
+    if (node.left) getMaxDepth(node.left, depth + 1) 
+  }
+
 
 
 
@@ -993,6 +1024,21 @@ function changeOrderList(array) {
 /* 
 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标
 */
+
+/* 
+给定数组，打印拼接的最小数字
+定义排序规则
+*/
+const getMinNum = (arr) => {
+  if (!arr) return false
+  getMinNum.sort(numSort).join()
+
+  const numSort = (a,b) => {
+    const pre = '' + a + b
+    const end = '' + b + a
+    return pre - end
+  }
+}
 
 
 /* 

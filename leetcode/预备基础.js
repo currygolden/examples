@@ -5,7 +5,7 @@
 // 回顾系列刷题 https://juejin.im/post/5e2f88156fb9a02fdd38a184
 
 
-// =======字符串系列
+// =======字符串系列  第一节
 // '(', ')', '{', '}', '[' and ']'一类标签是否输入合理
 
 /* 
@@ -58,8 +58,6 @@ var getMaxStr = function(str) {
 }
 
 
-
-import { func } from "prop-types";
 
 // https://felxy.github.io/blog/2017/06/01/DFS-BFS/
 // DFS-BFS遍历Dom结构
@@ -122,11 +120,11 @@ day1 = '2020-01-02'
 function rangeDay(day1, day2) {
   const res = []
   const dayTime = 24*60*60*1000
-  const startTime = day1.getTime()
-  const range = day2.getTime() - startTime
+  const startTime = new Date(day1).getTime()
+  const range = new Date(day2).getTime() - startTime
   if (!day1 || !day2) return res
   let total = 0
-  while (total <= range && total > 0 ) {
+  while (total <= range) {
     res.push(new Date(startTime + total).toLocaleDateString().replace(/\//g, '-'))
     total += dayTime
   }
@@ -692,6 +690,53 @@ plugin 实现参考
 https://champyin.com/2020/01/12/%E6%8F%AD%E7%A7%98webpack-plugin/
 vue-admin项目已实现
 */
+
+/* 
+数据相加丢失精度
+大数相加
+库或者自定义，数据运算需要留意
+*/
+
+function minNumAdd(a,b) {
+  // 转换成整数,但是这里带来了大数相加的问题
+  const pre = (a.toString().split('.')[1] ||'').length
+  const end = (b.toString().split('.')[1] ||'').length
+  const base = Math.pow(10, Math.max(pre, end))
+  return (a*base + b*base) / base
+}
+
+function bigNumAdd(a, b) {
+  // 先数据用0补齐，记录进1
+  let pre = a.toString() || ''
+  let end = b.toString() || ''
+  let count = 0
+  let res = []
+
+  const max = Math.max(pre.length, end.length)
+  while(pre.length < max) {
+    pre = '0' + pre
+  }
+  while(end.length < max) {
+    end = '0' + end
+  }
+  console.log('pre:', pre)
+  console.log('end:', end)
+  // 处理相加
+  for (let i = pre.length -1; i > -1; i--) {
+    let tmpSum = Number(pre[i]) + Number(end[i]) + count
+    console.log('all:', res)
+    if (tmpSum > 9) {
+      count = 1
+    } else {
+      count = 0
+    }
+    res[i] = tmpSum % 10 || 0
+  }
+  console.log('all:', res)
+  if (count === 1) res.unshift('1')
+  return res.join('')
+ }
+
 
 
 

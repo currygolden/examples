@@ -12,7 +12,10 @@ some practice
 ## 面试合集https://juejin.im/post/5dd1d90d6fb9a01ff4495ce0
 ## 面试简历自我评价 https://juejin.im/post/5e7d4e8b6fb9a03c6422f112
 
-## 工具类网站https://juejin.im/post/5ef6ac145188252e47137e97
+## 工具类网站
+- https://juejin.im/post/5ef6ac145188252e47137e97
+- http://zy2071.com/project-center/#/jueJinHot
+
 
 
 
@@ -34,6 +37,12 @@ some practice
 - https://juejin.im/user/3808363978439005/posts 一些业务总结，比较杂乱
 - https://juejin.im/post/6844903952761225230 比较多的实践案例
 - https://github.com/godbasin/godbasin.github.io
+- https://juejin.im/post/6844904116603486221 字节作者 
+- https://juejin.im/user/2013961030742589/posts 内容比较优秀的作者
+- https://juejin.im/user/764915822103079 值得参考的内容
+- https://juejin.im/post/6890075489881948167 平凡的求职者众生相
+- https://github.com/staven630/blog 有一定积累的作者
+- https://juejin.im/user/3245414024218333/posts 内容比较有趣
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510
@@ -56,6 +65,10 @@ some practice
 - 做配置型业务： quark-H5 | doring-H5 | form-generator
   1. https://github.com/JakHuang/form-generator
 - 接手过的项目 ops | m-bike | ml-bike
+
+
+### 需要阅读的源码
+- vue 技术解密 https://ustbhuangyi.github.io/vue-analysis
 
 
 

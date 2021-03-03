@@ -43,6 +43,10 @@ some practice
 - https://juejin.im/post/6890075489881948167 平凡的求职者众生相
 - https://github.com/staven630/blog 有一定积累的作者
 - https://juejin.im/user/3245414024218333/posts 内容比较有趣
+- https://godbasin.github.io/ 适合阅读的作者
+- https://zhuanlan.zhihu.com/p/115537741 视野领先的作者
+
+- https://github.com/WindrunnerMax/EveryDay 非常能总结的作者
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510

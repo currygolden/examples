@@ -1144,3 +1144,13 @@ const getTrapMax = (arr = [], k = 0) => {
   return res
 }
 
+
+
+/* 
+  hashMap
+  例子：缓存库/存储库的设计，实现deepclone
+
+
+
+*/
+

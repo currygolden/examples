@@ -5,6 +5,7 @@
 2: 支持传参
 3: 开始就执行
 4: 取消防抖
+5: 处理返回值
 
 主要思路就是先清除定时器，在开启定时器
 二者都有关于头尾是否执行的处理
@@ -26,6 +27,7 @@ function debounce2(func, time, immediate) {
   var timeout
   var result
 
+  if (timeout) clearTimeout(timeout)
   return function() {
     var context = this
     var args = arguments || {}
@@ -38,14 +40,19 @@ function debounce2(func, time, immediate) {
       }, time)
       // 若不存在定时器，则立即执行
       // 同步操作才可以拿到返回值
-      if (callNow) result = func.apply(this,args)
+      if (callNow) result = func.apply(context,args)
     } else {
       // 正常添加定时器
+      timeout = setTimeout(function(){
+          func.apply(context, args)
+      }, wait)
     }
 
     return result
   }
 }
+
+// v3 支持取消
 
 
 /* 

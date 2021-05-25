@@ -42,8 +42,7 @@ function shallowClone(source) {
 考虑： 1入参类型
       2递归处理
       3循环引用 设置weakMap
-      4递归爆栈
-       
+      4递归爆栈  
 */
 // 严格判断数据类型
 function typeCheck(item) {
@@ -51,7 +50,7 @@ function typeCheck(item) {
 }
 // 判定引用类型即可
 function isObject(obj) {
-  return typeof obj === 'object' && obj != null
+  return typeof obj === 'object' && obj !== null
 }
 
 // dfs实现深拷贝
@@ -94,11 +93,7 @@ function bfsCopy(source) {
         quene.push(tmp[key])
       }
     } else {
-
+      target.push(tmp)
     }
   }
 }
-
-/* 
-  处理循坏引用
-*/

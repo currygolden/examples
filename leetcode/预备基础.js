@@ -37,7 +37,6 @@ var isValid = function(str) {
 
 /* 
 寻找字符串的最长子串长度
-
 */
 var getMaxStr = function(str) {
   if (!str) return ''
@@ -660,36 +659,6 @@ String.prototype.trim() = function() {
 
 // 扫描文件，批量读取并上传（创建读写流），结合webpack配置cdn
 
-/* 
-webpack loader/plugin 实现
-loader实现参考：
-https://juejin.im/post/5a698a316fb9a01c9f5b9ca0#heading-19
-https://champyin.com/2020/01/28/%E6%8F%AD%E7%A7%98webpack-loader/
-1: loader实现，单一功能，整体是一个模块，导出是一个函数
-2: 在webpack中的配置例子及参数解释
-*/
-
-// 帮助读取loader的options配置
-const loaderUtils = require('loader-utils')
-import { validateOptions } from 'schema-utils';
-
-function myWebpackLoader(suource) {
-  const options = loaderUtils.getOptions(this)
-  const callback = this.async() // 定义为异步处理的loader
-
-  // 处理source，返回结果
-  this.callback(null, result)
-
-  // 如果是最后的loader，需要输出js
-  return 'module.exports = ' + JSON.stringify(source);
-
-}
-
-/* 
-plugin 实现参考
-https://champyin.com/2020/01/12/%E6%8F%AD%E7%A7%98webpack-plugin/
-vue-admin项目已实现
-*/
 
 /* 
 数据相加丢失精度
@@ -735,7 +704,8 @@ function bigNumAdd(a, b) {
   console.log('all:', res)
   if (count === 1) res.unshift('1')
   return res.join('')
- }
+}
+
 
 
 
@@ -998,9 +968,22 @@ function generateTree(pre, mid) {
 ========= 数组 =========
 双指针
 ruduce迭代
+实现数组常见方法
 
 */
-// 寻找两数之和 
+/**
+ * @description 
+ * 寻找两数之和
+ * 寻找两数之和，乘积最小
+ * 和为s的连续正数序列
+ * 连续序列使得和最大
+ * 
+ * 是否为有序数组，是否可以提前排序，利用map遍历变搜索
+ * @param {number} s
+ * @param {array} arr
+ * @return {array} 
+ */
+ 
 function getPlusNum(s, arr) {
   for (let i = 0; i < arr.length; i++) {
     let pre = arr[i]

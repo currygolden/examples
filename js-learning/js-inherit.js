@@ -15,6 +15,7 @@ function Person(name, age) {
   this.name = name
   this.age = age
 }
+// 避免函数一次次定义，所以写在原型上
 Person.prototype.say() = function() {
   alert('I can speak')
 }

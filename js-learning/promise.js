@@ -69,14 +69,14 @@ function Promise(excutor) {
   function reject(reason) {
     if (this.status = 'pending'){
       this.reason = reason
-      this.status = 'resolved'
+      this.status = 'rejected'
     }
   }
   /* 
     全局错误接受
   */
   try {
-    // resolve, reject是excutor的形参
+    // resolve, reject是excutor的形参，会默认执行，包裹起来是为了拿到最外面的错误信息
     excutor(resolve, reject)
   } catch (e) {
     reject(e)
@@ -89,9 +89,11 @@ function Promise(excutor) {
   1: then的回调在下一轮时间循环执行
   2: then方法返回promise对象，支持链式调用
     这里then方法的返回值有两种
+  3.新增
+    promise.then 的promise状态有三种，如果是pending 代表是异步调用，这种情况是resolve在定时器调用
 */
 Promise.prototype.then = (onFulfilled, onRejected) => {
-  // 判断回调是否为函数
+  // 判断回调是否为函数，处理值穿透
   onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
   onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason }
 
@@ -99,7 +101,7 @@ Promise.prototype.then = (onFulfilled, onRejected) => {
   // then 需要返回一个新的promise
   let promise2 = new Promise((resolve, reject) => {
     // 判断之前promise的状态
-    if (self.status = 'FULFILLED') {
+    if (self.status === 'FULFILLED') {
       // 成功的回调
       setTimeout(() => {
         try {
@@ -110,7 +112,7 @@ Promise.prototype.then = (onFulfilled, onRejected) => {
           reject(e)
         }
       })
-    } else if (self.status = 'REJECTED'){
+    } else if (self.status === 'REJECTED'){
       // 失败回调
       setTimeout(() => {
         let res = onRejected(self.value)
@@ -136,7 +138,7 @@ Promise.prototype.then = (onFulfilled, onRejected) => {
 // 处理then返回的promsie与回调函数返回值
 function resolvePromise(promise2, res, resolve, reject) {
   if (res !== null && (typeof res === 'object' || typeof res === 'function')) {
-
+    // 如果返回promise就递归解析
   } else {
     // 原始类型
     resolve(res)
@@ -152,6 +154,7 @@ function resolvePromise(promise2, res, resolve, reject) {
 Promise.all = function(promiseArr) {
   return new Promise((resolve, reject) => {
     let resArr = []
+    // 需要借助闭包变量，确定then了5次
     let i = 0
     // 参数及顺序处理
     function handleData(obj, idx) {
@@ -175,7 +178,6 @@ Promise.all = function(promiseArr) {
 
 /* 
   race方法实现
-
 */
 Promise.race = function(promiseArr) {
   return new Promise((resolve, reject) => {
@@ -190,7 +192,6 @@ Promise.race = function(promiseArr) {
     })
   })
 }
-
 
 // 模拟轮询
 Promise.retry = (fn, times = 5, tryTimes = 0) => {
@@ -222,7 +223,7 @@ async function multiRequest(urls, maxNum) {
   let sum = urls.length
   let count = 0
   return new Promise((resolve, reject) => {
-    // 请求最大数
+    // 请求最大数,这里是实现并发
     while(count < maxNum) {
       next()
     }
@@ -232,6 +233,7 @@ async function multiRequest(urls, maxNum) {
       let current = count++
       // 判断是否全部结束
       if (current >= sum) {
+        // 结果的修改是在回调里进行的
         !result.includes(false) && resolve(result)
       }
       let url = urls[current]
@@ -245,7 +247,7 @@ async function multiRequest(urls, maxNum) {
       })
       .catch((err) => {
         console.log('end' + current, new Date().toLocaleDateString())
-        result[current] = res
+        result[current] = err
         if (current < sum) {
           next()
         }

@@ -1,4 +1,5 @@
 /* 
+https://juejin.cn/post/6844903895467032589
 js对象生成实际的Dom结构
 或者描述为实现render函数
 */
@@ -49,5 +50,6 @@ var realUl = ul.render()
 document.body.appendChild(realUl)
 
 /* 
-Dom结构如何用js对象描述
+描述 diff 算法的一些规则
+
 */

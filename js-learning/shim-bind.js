@@ -43,7 +43,7 @@ Function.prototype.bind2 = function(context) {
   // 获取this
   // context是要绑定的this
   var self = this
-  var args = Arrat.prototype.slice.call(arguments,1)
+  var args = Array.prototype.slice.call(arguments,1)
 
   var resf =  function() {
     // 二级传参数
@@ -53,6 +53,7 @@ Function.prototype.bind2 = function(context) {
     // return self.apply(context, args2)
     return self.apply(this instanceof resf ? this : context, args2)
   }
+  return resf
 }
 
 

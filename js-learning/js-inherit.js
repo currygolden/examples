@@ -105,6 +105,9 @@ _create = function (o) {
 
 /* 
   es6 继承 http://es6.ruanyifeng.com/#docs/class-extends
+  1. 属性 public/private 等
+  2. 对于一些关键的属性，容易导致核心流程问题，可以使用setter/getter 存储器来控制读写
+
 */
 class Parent {
   constructor(name,age) {

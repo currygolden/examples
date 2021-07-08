@@ -46,9 +46,12 @@ some practice
 - https://juejin.cn/user/2348212569517645/posts 一些还不错的分享总结
 - https://github.com/WindrunnerMax/EveryDay 非常能总结的作者
 - https://godbasin.github.io/ 坚持记录的作者
+- https://juejin.cn/post/6844904103504527374 有些干货
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510
+
+- 资源收藏 https://juejin.cn/post/6978856784752541710
 
 
 

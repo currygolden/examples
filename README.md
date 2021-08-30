@@ -1,3 +1,11 @@
+<!--
+ * @Author: your name
+ * @Date: 2021-06-09 16:40:40
+ * @LastEditTime: 2021-07-22 10:15:38
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: /examples/README.md
+-->
 # examples
 some practice 
 - 实现一些框架脚本功能
@@ -47,6 +55,11 @@ some practice
 - https://github.com/WindrunnerMax/EveryDay 非常能总结的作者
 - https://godbasin.github.io/ 坚持记录的作者
 - https://juejin.cn/post/6844904103504527374 有些干货
+- https://juejin.cn/user/3737995267297838/posts 可以借鉴的作者
+- https://juejin.cn/post/6987549240436195364 一些有深度的问题
+- https://juejin.cn/post/6986453616517185567 css一些表现
+- https://www.rrfed.com/category/basic/page/2/ 人人fe 
+- https://www.cnblogs.com/xiaohuochai/p/9196906.html 小火柴的文章
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510

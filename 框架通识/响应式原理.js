@@ -19,6 +19,7 @@
 
   watch属性就有些不一样的了，属于userwatch,它并没有像computed/data一样定义getter/setter，而是关注回调函数
 */
+
 /* 
 模拟实现 observe 函数
 */
@@ -74,3 +75,36 @@ class Dep {
   }
 }
 
+
+
+
+/* 
+  vue3 处理响应式的办法
+  1. 解决对象 增加/删除属性；处理数组通过下标修改 历史问题
+  2. api层面的 object.defineProperty 有局限性对象crud的实现，而且在报错层面对于框架代码不友好
+  3. 使用 proxy/reflect 开展对象的代理和操作
+
+  eg1 代理操作一个对象
+  eg2 如何在框架中使用，收集触发的场景
+*/
+let person = {
+  name: 'jj',
+  age: 30
+}
+const p = new Proxy(person, {
+  // 读取触发
+  get(target, propName) {
+    console.log(`读取p的${propName}属性 `)
+    return Reflect.get(target, propName)
+  },
+  // 新增&修改属性触发
+  set(target, propName, value) {
+    console.log(`修改p的${propName}属性 `)
+    Reflect.set(target, propName, value)
+  },
+  // 删除属性触发
+  deleteProperty(target, propName) {
+    console.log(`删除p的${propName}属性 `)
+    return Reflect.deleteProperty(target, propName)
+  }
+})

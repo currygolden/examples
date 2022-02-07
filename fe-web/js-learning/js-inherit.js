@@ -104,8 +104,8 @@ _create = function (o) {
 }
 
 /* 
-  es6 继承 http://es6.ruanyifeng.com/#docs/class-extends
-  1. 属性 public/private 等
+  es6 继承 http://es6.ruanyifeng.com/#docs/class-extends,本质是语法糖，看起来更加的面向对象
+  1. 属性 public/private 等，方法，子类的继承
   2. 对于一些关键的属性，容易导致核心流程问题，可以使用setter/getter 存储器来控制读写
 
 */
@@ -113,6 +113,11 @@ class Parent {
   constructor(name,age) {
     this.name = name
     this.age = age
+  }
+  // 静态属性，仅通过class本身访问
+  static name = '123'
+  static say() {
+
   }
   hello() {
     

@@ -286,7 +286,7 @@ function myInterval(fn, a, b) {
  * 4. async函数返回的 Promise 对象，必须等到内部所有await命令后面的 Promise 对象执行完，才会发生状态改变，除非遇到return语句或者抛出错误。
  * 5. 一个await 抛出错误则整个async的状态为reject
  * 6. 处理多个串行await不阻塞，可以提前try catch 或者.catch,但是一般异步有依赖所以会提前中断，多个await可以try catch 捕获
- * 7. 本身 async 的异常可以一次捕获，单个/多个await异常捕获
+ * 7. 本身 async 的异常可以一次捕获，单个/多个await异常捕获,或者说catch本身业务不应该关注，但是err是需要暴露的
  * 8. await的同步异步触发
  */
 

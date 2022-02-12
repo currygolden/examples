@@ -11,16 +11,5 @@
  *    容器： 类似于docker?
  * 4. mapReduce: 数据的检索与输出
  * 5. 描述 HDFS，YARN，mapReduce的工作流程
- * 
+ * 6. CentOS 的全称是社区ENTerprise Linux 操作系统
   */
-
-
-
-
-
-  /**
-   * Docker
-   * 1. cs架构，就会存在守护进程
-   * 
-   * 
-    */

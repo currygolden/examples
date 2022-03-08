@@ -31,7 +31,7 @@ Function.prototype.call2(context, ...args) = function() {
   var res = context.fn(...args)
   var res = context.fn([...args]) // apply
   delete context.fn
-  return result
+  return res
 }
 
 /* 
@@ -47,7 +47,7 @@ Function.prototype.bind2 = function(context) {
 
   var resf =  function() {
     // 二级传参数
-    var args2 = Arrat.prototype.slice.call(arguments).concat(args)
+    var args2 = Array.prototype.slice.call(arguments).concat(args)
     // 提供返回值，绑定this，这一步是实际的模拟过程
     // 这个返回函数可能作为构造函数，此时context不生效
     // return self.apply(context, args2)

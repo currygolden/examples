@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-03-10 10:29:21
- * @LastEditTime: 2022-03-11 19:53:26
+ * @LastEditTime: 2022-03-17 11:46:19
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/leetcode/数据结构.js
@@ -165,7 +165,7 @@ Array.prototype.push = function(...val) {
  * @param {array} val 剩余参数
  * @return {*}
  */
-Array.prototype.slice = function(idx, num, ...val) {
+Array.prototype.splice = function(idx, num, ...val) {
   let o = Object(this)
   let len = o.length || 0
   let res = []
@@ -185,3 +185,34 @@ Array.prototype.slice = function(idx, num, ...val) {
   o = pre.concat(val, last)
   return res
 }
+
+/**
+ * 
+ * 
+ */
+
+ function sortArray(arr1, arr2) {
+    let i = 0, j = 0
+    let res = []
+    let k = arr1.length + arr2.length
+    while(i < k || j < k) {
+      if (arr1[i] < arr2[j] || arr1[i] === arr2[j]) {
+        res.push(arr1[i])
+        i++
+      } else if(arr1[j] < arr2[i]){
+        res.push(arr1[j])
+        j++
+      }
+    }
+ }
+
+
+/**
+ * 双指针&滑动窗口&hashmap&动态规划
+ * 维护每次遍历的起点和终点（获取条件区间，将数组划分区间）
+ * 记录有难度的一些题型
+ * 53 和最大的连续子数组
+ * 66 数组加1
+ * 88 双指针合并有序数组
+ * 
+ */

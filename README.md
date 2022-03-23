@@ -17,7 +17,7 @@ some practice
 ## 腾讯云文档地址：跟踪最新技术方向 https://cloud.tencent.com/document/product/876
 
 ## 面试简历自我评价 https://juejin.im/post/5e7d4e8b6fb9a03c6422f112
-
+## 面试参考 https://github.com/sl1673495
 ## 工具类网站
 - https://juejin.im/post/5ef6ac145188252e47137e97
 - http://zy2071.com/project-center/#/jueJinHot

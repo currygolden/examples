@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-03-11 19:58:28
- * @LastEditTime: 2022-03-25 20:43:05
+ * @LastEditTime: 2022-03-27 15:38:55
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/leetcode/算法.JS
@@ -11,7 +11,7 @@
 
 
 
-
+/* 排序算法 ********************************************** */
 /**
  * @description: 排序数组的二分查找
  * 1. 明确结果成立的条件
@@ -25,7 +25,8 @@ function binarySearch(arr = [], target) {
   const len = arr.length
 	let left = 0, right = n-1, res = n
 	while(left <= right) {
-		let mid = ((right - left) >> 1) + left
+    let mid = ((right - left) >> 1) + left
+    // 		let mid = Math.floor((right + left) / 2)
 		if (target ===  arr[mid]) return mid
 		if (target < arr[mid]) right = mid -1
 		if (target > arr[mid]) left = mid +1
@@ -95,11 +96,84 @@ function quickSortV1(arr) {
  */
 function insertSort(arr) {
   for (let i = 1; i < arr.length; i++) {
+    let target = i
     for (let j = i - 1; j >= 0; j--) {
-      if (arr[i] < arr[j]) {
-        [arr[i], arr[j]] = [arr[j], arr[i]]
+      if (arr[target] < arr[j]) {
+        // 交换顺序或者左边插入数据
+        [arr[target], arr[j]] = [arr[j], arr[target]]
+        // 记录交换后元素的位置
+        target = j
+      } else {
+        // 左侧默认是有序的，可以提前结束本次循环
+        break
       }
     }
   }
   return arr
 }
+/**
+ * @description: 选择排序
+ * 1. 每次找到最小元素跟左侧元素交换
+ * @param {*}
+ * @return {*}
+ */
+function findSort(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let minIndex = i
+    for (let j = i+1; j < arr.length; j++) {
+      if (arr[j] < arr[minIndex]) {
+        minIndex = j
+      }
+    }
+    let tmp = arr[minIndex]
+    arr[minIndex] = arr[i]
+    arr[i] = tmp
+    // js语言可以简单的赋值，不用开辟空间
+    // [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
+  }
+  return arr
+}
+/**
+ * @description: 归并排序
+ * 1. 先拆分，在两两合并排序
+ * 2. 递归考虑到退出条件
+ *  nlogn
+ * @param {*}
+ * @return {*}
+ */
+function mergeSort(arr) {
+  if (arr.length < 2) return arr
+  const mid = Math.floor(arr.length / 2)
+  const left = arr.slice(0,mid)
+  const right = arr.slice(mid)
+  return merge(mergeSort(left), mergeSort(right))
+}
+
+function merge(left, right) {
+  const result = []
+  // 存在3个while
+  while(left.length && right.length) {
+    if (left[0] <= right[0]){
+      result.push(left.shift())
+    } else {
+      result.push(right.shift())
+    }
+  }
+
+  while(left.length) {
+    result.push(left.shift())
+  }
+  while(right.length) {
+    result.push(right.shift())
+  }
+  return result
+}
+
+/* ***************************************************** */
+
+
+
+/**
+ * @description: 二叉树部分
+
+ */

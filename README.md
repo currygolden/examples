@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-03-14 16:57:42
+ * @LastEditTime: 2022-04-14 12:04:13
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
@@ -62,6 +62,8 @@ some practice
 - https://www.cnblogs.com/xiaohuochai/p/9196906.html 小火柴的文章
 - https://www.yuque.com/kiwenlau/hanyan_weekly/nrvl1z 寒燕周刊
 - https://juejin.cn/post/6844903956905197576 一定深度的文章
+- https://cloud.tencent.com/developer/user/3713434 ConardLi的专栏
+- https://qifutao.com/#/13 写的还不错的作者
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510

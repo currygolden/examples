@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2022-02-26 18:49:45
+ * @LastEditTime: 2022-04-16 14:16:47
+ * @LastEditors: your name
+ * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @FilePath: /examples/fe-web/工程化/index.js
+ */
 /**
  * tips: 方法论始终贯穿其中，明白前端/后端/数据在产品周期扮演的角色，主要架构存在什么问题
  * 1. 前端工程化”的定义：以降低成本、提高效率、保障质量为目的，通过一系列规范、工具、流程（分别对应软件工程中的方法、工具和过程）作为手段的实践体系
@@ -18,6 +26,13 @@
  *  3. 云开发平台整体架构
  *  4. 工程化专注解决面临的问题，还有一些基础能力需要其它服务支持
  */
+
+/**
+ * 1. 架构设计
+ * 
+ * 
+ * 
+  */
 
 
  /**

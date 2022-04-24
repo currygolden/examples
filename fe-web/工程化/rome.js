@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-16 14:23:35
- * @LastEditTime: 2022-04-19 23:32:29
+ * @LastEditTime: 2022-04-24 22:57:42
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/rome.js
@@ -66,6 +66,7 @@
  *    1.5.2 core的架构涉及和调度能力是一切的核心，而需要支持哪些能力是应用视角和业务视角的关注a
  * 2 资产沉淀和管理
  *  2.1 前面介绍cli 沉淀工程方案，对于物料体系如 组件&函数 该如何形成沉淀
+ *    2.1.1 统一的打包工具（对于物料而言可以是rollup,没有太重），目前采用的方案是 umi-father
   */
 
 

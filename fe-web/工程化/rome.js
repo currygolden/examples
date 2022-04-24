@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-16 14:23:35
- * @LastEditTime: 2022-04-19 21:04:34
+ * @LastEditTime: 2022-04-19 23:32:29
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/rome.js
@@ -31,7 +31,7 @@
  *          CLI 插件应该总是包含一个 service 插件 做为主的导出，并且他能够选择性的包含 generator, prompt 文件 和 Vue UI 集成
  *          GeneratorService & RomeService
  *          RomeService：介绍如下
- *
+ * 
  *          识别并加载环境变量，支持区分不同的环境隔离
  *          解析文件导入，区分本地/远程文件类型
  *          index.js 作为 service 入口，generator.js/generator/index.js 作为generator入口

@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-02-26 18:49:45
- * @LastEditTime: 2022-04-16 14:16:47
- * @LastEditors: your name
+ * @LastEditTime: 2022-04-19 23:45:25
+ * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/index.js
  */
@@ -51,3 +51,8 @@
    * 2. shell/http（偏云函数）
    * 
    */
+  /**
+   * 1. 这里收集的是一些阅读过的工程类的源码
+   * 
+   * 
+    */

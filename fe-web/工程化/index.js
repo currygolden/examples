@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-02-26 18:49:45
- * @LastEditTime: 2022-04-16 14:16:47
- * @LastEditors: your name
+ * @LastEditTime: 2022-04-29 20:10:08
+ * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/index.js
  */
@@ -29,9 +29,15 @@
 
 /**
  * 1. 架构设计
- * 
- * 
- * 
+ *   熟悉并了解以vue-cli为生态的工程体系
+ *    统一规范化开发过程（模版，物料，工作流）
+ *    统一并优化构建流程（devserver, vite）
+ *    统一并规范化CI/CD 流程
+ *    统一并规范化 上线/上线后流程
+ *
+ * 2. 存在的问题
+ *    项目依赖关系构建 link关系
+ *    工程依赖处理 node_module
   */
 
 
@@ -49,5 +55,5 @@
    * 插件场景(主要看插件应用的生命周期)
    * 1. 开发套件 plugin
    * 2. shell/http（偏云函数）
-   * 
+   *
    */

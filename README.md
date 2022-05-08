@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-04-23 16:28:38
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-08 13:03:25
+ * @LastEditors: liyu38 liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
 -->
@@ -100,6 +100,10 @@ some practice
 - 刷题 https://github.com/Advanced-Frontend/Daily-Interview-Question/blob/master/datum/summary.md
 - 掘金的一系列刷题文章 https://juejin.cn/post/6844903976081555470
 - 自测 简历准备 https://juejin.cn/post/6844903682455109640
+
+
+## 科学的学习方法
+### 能把知识简单的给别人讲清楚就是有效学习，否则会陷入无意识的知识点收集阶段
 
 
 

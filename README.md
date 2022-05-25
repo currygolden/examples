@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-05-08 13:03:25
+ * @LastEditTime: 2022-05-13 17:46:26
  * @LastEditors: liyu38 liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
@@ -65,6 +65,7 @@ some practice
 - https://cloud.tencent.com/developer/user/3713434 ConardLi的专栏
 - https://qifutao.com/#/13 写的还不错的作者
 - https://juejin.cn/post/6923922117268340750 前人的基础理论经验
+- https://juejin.cn/team/6984296204297306148/posts 字节基础架构团队
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510

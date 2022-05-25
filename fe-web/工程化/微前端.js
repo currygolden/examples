@@ -2,12 +2,17 @@
  * @Author: liyu38 liyu38@meituan.com
  * @Date: 2022-05-07 15:31:23
  * @LastEditors: liyu38 liyu38@meituan.com
- * @LastEditTime: 2022-05-07 15:46:03
+ * @LastEditTime: 2022-05-12 16:34:32
  * @FilePath: /examples/fe-web/工程化/微前端.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
 /**
- * 1. 在业务中落地微前端实际遇到什么问题
+ * 1. 在业务中落地微前端实际遇到什么问题，或者说micro的目标是
+ *    解耦巨石应用
+ *    落地微前端，根据业务或者模块拆分系统，可以更好的维护
+ *    独立开发，独立部署，独立上线
+ *    与技术栈无关
+ *    形成开发体系
  *  1.1 主应用+子应用体系采用怎样的运行时框架
  *    社区：乾坤，静态资源版本
  *  1.2 
@@ -22,4 +27,11 @@
  *    粒度不一的资源体系
  * 
  * 
+ * 
+ * 
+ * 
+ * 
+ *  3. 一些方案实践和回顾
+ *    3.1 edc/cli 出发点是组件即服务，将单vue 文件或者jsx 文件构建生成的静态资源解析成具有完整生命周期的应用（js->app）
+ *      根据静态资源实现版本管理，统一发布，部署，但是热更新问题很大
   */

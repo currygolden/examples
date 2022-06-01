@@ -1,14 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2022-04-16 14:23:35
- * @LastEditTime: 2022-04-20 16:14:03
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-05-09 11:48:44
+ * @LastEditors: liyu38 liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/rome.js
  */
 /**
  * 1. 企业内部研发平台分析
- *  “前端架构”的定义是一系列工具和流程的集合，旨在提升前端代码的质量，并实现高效、可持续的工具流
  *  1.1. rome/cli 介绍
  *    1.1.1 rome全局命令，必然是/bin
  *      包含一些cli 交互的命令
@@ -32,20 +31,20 @@
  *          CLI 插件应该总是包含一个 service 插件 做为主的导出，并且他能够选择性的包含 generator, prompt 文件 和 Vue UI 集成
  *          GeneratorService & RomeService
  *          RomeService：介绍如下
- *
+ *      
  *          识别并加载环境变量，支持区分不同的环境隔离
  *          解析文件导入，区分本地/远程文件类型
  *          index.js 作为 service 入口，generator.js/generator/index.js 作为generator入口
  *          rome插件拓展了install 方法，作为启动函数（类似vue 插件）
  *          检测分析 vue/cli 插件和 rome插件
  *          管理 service和generator
- *
+ *        
  *          GeneratorService：介绍如下
  *          修改package.json/拓展文件目录和写入文件
  *          底层是拓展于vue/cli,所以根据版本维护了RomeDependence即vue/cli里的各种工具包，在此基础上拓展rome的能力
  *          romeGeneratorAPI 继承自 GeneratorAPI
  *          执行插件: 生命周期/插件初始化
- *
+ *          
  *          service: 介绍如下
  *          给cli提供服务，修改webpack配置
  *          最后由service统一调度，初始化和消费插件，整体实现invoke
@@ -65,18 +64,9 @@
  *  1.5 感受
  *    1.5.1 类似cli&service的能力，可以通过core核心建设工程化能力，需要的拓展通过插件挂载
  *    1.5.2 core的架构涉及和调度能力是一切的核心，而需要支持哪些能力是应用视角和业务视角的关注a
- * 2 资产沉淀和管理
+ *  2 资产沉淀和管理
  *  2.1 前面介绍cli 沉淀工程方案，对于物料体系如 组件&函数 该如何形成沉淀
- *  2.2 公用的资产打包工具 father-build和文档工具
- *  2.3 体系化的 app 打包工具
- * 3 具体资产介绍
- *   3.1 前面的cli可以在规范层和约束层做统一的收敛，具体而言，有哪些方案可以沉淀下来作为基础能力
- *    3.1.1 模版能力（反映团队的开发规范,整体规范）
- *    3.1.2 基于 eslint/prettier/commitlint 的工作流
- *    3.1.3 本地开发/热更新（devServer）
- *    3.1.4 分支模型+ CR 机制
- *    3.1.5 CI&CD 体系
- *   3.2 应用层
+ *    2.1.1 统一的打包工具（对于物料而言可以是rollup,没有太重），目前采用的方案是 umi-father
   */
 
 

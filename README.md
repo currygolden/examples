@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-05-13 17:46:26
- * @LastEditors: liyu38 liyu38@meituan.com
+ * @LastEditTime: 2022-06-01 20:49:05
+ * @LastEditors: liyu liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
 -->
@@ -66,6 +66,7 @@ some practice
 - https://qifutao.com/#/13 写的还不错的作者
 - https://juejin.cn/post/6923922117268340750 前人的基础理论经验
 - https://juejin.cn/team/6984296204297306148/posts 字节基础架构团队
+- https://juejin.cn/user/1292681407377624/posts 流水账
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510
@@ -101,6 +102,7 @@ some practice
 - 刷题 https://github.com/Advanced-Frontend/Daily-Interview-Question/blob/master/datum/summary.md
 - 掘金的一系列刷题文章 https://juejin.cn/post/6844903976081555470
 - 自测 简历准备 https://juejin.cn/post/6844903682455109640
+- 刷题站点 https://fe.ecool.fun/
 
 
 ## 科学的学习方法

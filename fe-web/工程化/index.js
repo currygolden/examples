@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-02-26 18:49:45
- * @LastEditTime: 2022-05-15 13:35:48
- * @LastEditors: liyu38 liyu38@meituan.com
+ * @LastEditTime: 2022-06-01 09:59:10
+ * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/index.js
  * 参考阅读汇集
@@ -38,23 +38,23 @@
  *  1.4 构建完成后将静态资源上传到 CDN 。
  *  1.5 配置 Nginx 的反向代理，将静态资源流量转发到 CDN
  *    === 以上属于静态资源的管理和组织
- * 
+ *
  * 2. 自动化构建方案大致包含
  *  2.1 clone / checkout branch / lint&test/ yarn install / 构建 / 发布流水线&人工卡点 / 资源上传cdn等等
  *  2.2 保证环境一致性：Docker
  *  2.3 按流程构建：Jenkins
  *  2.4 自动化构建触发：Gitlab webhook（这一部分了解流程，实践还不够）
- * 
+ *
  * 3. 预发环境、版本管理（秒级回滚）、小流量、灰度、AB测试（发布服务支持）
- 
+
   */
 
 /** ==================
  * 1. 监控告警实践
- * 
- * 
- * 
- * 
+ *
+ *
+ *
+ *
   */
 
 
@@ -75,7 +75,7 @@
  *   工程适配是一个技术场景，也应该是完整的技术工程方案，需要考虑到综合情况
  * 2. 系统微前端迁移
  * 3. PC端移动端适配
- * 
- * 
- * 
+ *
+ *
+ *
   */

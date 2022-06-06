@@ -1,12 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2022-04-15 17:48:21
- * @LastEditTime: 2022-06-03 18:16:23
+ * @LastEditTime: 2022-06-04 18:15:01
  * @LastEditors: liyu38 liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/vite.js
  * 参考阅读：
  * 1. https://juejin.cn/post/7012880929102233637 vue2 传统项目迁移vite
+ * 2. https://juejin.cn/post/7064853960636989454 vite 原理介绍
+ * 2. https://juejin.cn/post/7043777969051058183 vite 系列解读文章
  */
 /**
  * 1. vue2 项目迁移vite
@@ -32,13 +34,60 @@
  /**
   * 用问题来推动学习或许目的性更强
   * 1. vite的优势和当前打包工具存在的问题是
+  *   构建启动慢，需要打包后启动本地服务
+  *   热更新在项目规模增大后效率降低
+  *   本地服务的打包由浏览器处理，实际需要打包由esbuild 处理，对比传统打包工具快
   * 2. 浏览器支持 esmodule 意味着什么
+  *   本地服务不需要打包，将模块转为esmodule即可
+  *   未来web 端的模块标准化
   * 3. 历史常见为什么需要打包，而 esmodule 在开发环境为什么可以不打包
-  * 4. 浏览器可以识别 esmodule，但是不识别非js文件，所以实际的打包过程🈶由浏览器完成
+  *   先说不打包，由于浏览器可以识别，模块就是一个个http请求，自然也实现了按需加载
+  *   浏览器不识别html,js,css以外的资源，可以一整个文件去加载，但是无法利用http的缓存，浪费网络资源，所以打包做模块划分，将文件标准化
   * 5. 总体来看， vite包含什么，由什么组成
+  *   一个开发服务器
+  *   一套构建指令，以及可拓展的api
   * 6. 什么是 npm 依赖解析和预构建
+  *   对于第三方模块（对比源码）会重写导入路径，添加node_module 前缀,一般来说第三方模块子模块太多还是会做打包优化
+  *   利用esbuild 将CommonJS / UMD 转换为 ESM（浏览器可识别的资源）
+  *   在本地的vite目录下，HTTP 头来缓存请求得到的依赖，强缓存
   * 7. vite 构建过程中是如何处理源码和依赖的
+  *   拦截http 请求，利用中间件,esbuild处理 html,vue.jsx转为浏览器可是别的模块，第三方包类似，二者缓存策略不同
+  *   模块转为ESM，源码会协商缓存
+  * 8. 生产环境为什么还是需要打包
+  *   如果是一个个的子模块对应http请求，即使http2 也存在问题，还是需要做模块拆分，按需加载，做适当的缓存
+  * 9. vite 的热更新是如何实现的
+  *   也是建立websocket连接，监听文件变化，不过少了构建打包的过程
+  * 10. 在开发阶段是使用esbuild,在生产阶段使用rollup的目的是？
   *
   *
   *
+  */
+
+
+
+
+
+/**
+ * vite 项目源码分析
+ * 1. 和历史脚手架类似，直接去/bin/vite.js
+ *   根据命令行参数区分不同的场景，注入环境变量，最后是执行dist/node/cli(为什么是 dist)
+ *   cli的命令大致分为5类
+ *   全局命令
+ *   dev 场景
+ *   build 场景
+ *   optimize 场景
+ *   preview 场景
+ * 
+ * 2. dev 命令
+ *   1. 利用 createServer 创建本地服务器
+ *   2. 有一个解析参数的过程
+ *      合并配置，用户配置，自定义配置
+ *      定义logger
+ *      解析全部插件并分成三类
+ *      解析worker
+ *      执行插件，并且将返回值进一步与配置项合并
+ *      等等。。。 一系列解析合并参数的过程
+ *  3. 利用http 创建server,利用connect 创建connect中间件，再使用websocket包裹
+ *     利用 chokidar 创建 watcher
+ *   
   */

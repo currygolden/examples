@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-06-01 20:49:05
- * @LastEditors: liyu liyu38@meituan.com
+ * @LastEditTime: 2022-06-04 21:59:02
+ * @LastEditors: liyu38 liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
 -->
@@ -35,7 +35,6 @@ some practice
 ### 社区优秀作者合集
 - B端常见业务实践 https://juejin.im/user/5648a5ca60b259caebaf7562/posts 花裤衩
 - https://juejin.im/user/5c45ddf06fb9a04a006f5491/posts 神三元
-- https://juejin.im/post/5d5b307b5188253da24d3cd1
 - https://juejin.im/user/574f8d8d2e958a005fd4edac/posts yck
 - https://www.cnblogs.com/tugenhua0707/p/10217134.html
 - https://juejin.im/post/6854573208671092743

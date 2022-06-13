@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-04-11 14:16:47
- * @LastEditTime: 2022-04-14 16:32:08
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-06-09 14:30:01
+ * @LastEditors: liyu liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/bundle.js
  * 如果要建设研发套件，需要做什么，参考阅读如下
@@ -38,9 +38,17 @@
  *          "devDependencies": Packages that are only needed for local development and testing.
  *          "peerDependencies": 解决核心包依赖的冲突问题，此时保证宿主和当前包的依赖相同，上升到宿主环境
  *          1.  npm install 的安装流程
- *            1.1 3.x 以后扁平结构，范围版本不满足则在子目录安装，这一步称为构建依赖树
- *            1.2 会根据这个依赖结构去下载或拿到缓存中的依赖包
- *            1.3 package-lock.json的处理
+ *            1.1 3.x 以后扁平结构，范围版本不满足则在子目录安装，这一步称为构建依赖树，主要是理解一个一个依赖的处理，遇到相同依赖不同版本会出现不一样的结果（依赖的不确定性导致lock文件的必要性）
+ *            1.2 lock 文件描述的信息
+ *              dependencies：只有子依赖的依赖和当前已安装在根目录的  node_modules 中的依赖冲突之后，才会有这个属性
+ *              integrity： hash 完整性
+ *              resolved： 包的来源
+ *            1.3 lock.json 中已经缓存了每个包的具体版本和下载链接，不需要再去远程仓库进行查询，然后直接进入文件完整性校验环节，减少了大量网络请求
+ *              对于app应用，需要把lock.json发布出去，以获取在不同环境和CI过程相同的结果
+ *              对于npm包而言，由于lock.json会固定版本，此时install 无法共享范围版本，造成依赖冗余（这句话要理解npm install 的原理）
+ *            1.4 package-lock.json的处理
+ *                如何理解npm 和 yarn 混用会造成的问题，yarn.lock 和package-lock.json有什么区别
+ *            1.5 扁平化，缓存，与lcok文件冲突的处理
  *      2.1.2 镜像管理
  * 3. 打包工具取舍和对比
  * 4. babel 的理解

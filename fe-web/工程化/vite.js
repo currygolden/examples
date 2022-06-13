@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-04-15 17:48:21
- * @LastEditTime: 2022-06-04 18:15:01
- * @LastEditors: liyu38 liyu38@meituan.com
+ * @LastEditTime: 2022-06-07 14:04:08
+ * @LastEditors: liyu liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/vite.js
  * 参考阅读：
@@ -15,11 +15,11 @@
  *  1.1 根据index.html 确认服务器根目录
  *  1.2 import() 动态引入不支持
  *  1.3 .vue 文件引入文件名不能省略
- * 
- * 
+ *
+ *
  * 2. vite解读
  *  2.1 类似import&type=module 的模块（即esmodule）写法，在浏览器原生支持的背景下，打包工作由浏览器接管
- * 
+ *
   */
 
 
@@ -77,8 +77,8 @@
  *   build 场景
  *   optimize 场景
  *   preview 场景
- * 
- * 2. dev 命令
+ *
+ * 2. dev 命令(主要理解 createServer 一系列的流程)
  *   1. 利用 createServer 创建本地服务器
  *   2. 有一个解析参数的过程
  *      合并配置，用户配置，自定义配置
@@ -87,7 +87,35 @@
  *      解析worker
  *      执行插件，并且将返回值进一步与配置项合并
  *      等等。。。 一系列解析合并参数的过程
- *  3. 利用http 创建server,利用connect 创建connect中间件，再使用websocket包裹
+ *  3. 利用http 创建server,利用connect 创建connect中间件，再使用websocket包裹（server 里很清晰，子模块在各个文件维护）
  *     利用 chokidar 创建 watcher
- *   
-  */
+ *     创建 moduleGraph
+ *     创建 插件容器（估计是和rollup 插件体系打通的理由）
+ *     定义热更新（文件改变的逻辑）执行
+ *     一系列的内部中间件
+ *
+ *  ================> 逐步拆解流程细节
+ *  4.理解 ModuleGraph
+ *    这里有两个概念，在vite 里 module是什么（对比webpack）,后者好说是一种数据结构
+ *    在 ModuleGraph 里定义了 modulenode的格式
+ *    之后定义了4中map和1个set,处理module的映射关系
+ *    ModuleGraph 的实例化依赖 createPluginContainer 最后提供的resolveId
+ *
+ *  5.理解vite实现的热更新
+ *
+ *
+ *
+ *
+ *  6.理解PluginContainer（或者说vite 的插件体系）
+ *   发现了acorn，这个是在webpack里递归分析依赖用到的，loader处理之后的文件由acor分析ast, 进一步分析出依赖
+ *   Plugin extends RollupPlugin
+ *   定义拓展了一些类型变量
+ *   最后导出一个 createPluginContainer 函数
+ *     1. 接受参数 ResolvedConfig：解析的一堆参数配置，moduleGraph，watcher
+ *     2. 定义了一系列debug场景，看起来也是打印一些信息
+ *     3. 利用import 实现require的场景，import.meta由ecmascript 实现
+ *
+ *
+ *
+ *   最终返回的 container 实例
+/

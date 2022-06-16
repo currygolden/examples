@@ -1,13 +1,14 @@
 /*
  * @Author: your name
  * @Date: 2022-04-11 14:16:47
- * @LastEditTime: 2022-06-09 14:30:01
+ * @LastEditTime: 2022-06-14 17:05:31
  * @LastEditors: liyu liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/bundle.js
  * 如果要建设研发套件，需要做什么，参考阅读如下
- * 1. https://cloud.tencent.com/developer/article/1555982
+ * 1. https://cloud.tencent.com/developer/article/1555982 npm install 原理
  * 2. https://www.jiangruitao.com/babel/introduction/ babel 教程
+ * 3. https://www.ruanyifeng.com/blog/2016/10/npm_scripts.html npm script
  */
 /**
  * 1. 模块化方案的演进
@@ -37,6 +38,7 @@
  *          "dependencies": Packages required by your application in production."，这里的文件如果作为依赖包（宿主项目）也会下载到node_module
  *          "devDependencies": Packages that are only needed for local development and testing.
  *          "peerDependencies": 解决核心包依赖的冲突问题，此时保证宿主和当前包的依赖相同，上升到宿主环境
+ *          "typings": 告诉第三方模块从哪里获取类型定义，一般都是集中化管理
  *          1.  npm install 的安装流程
  *            1.1 3.x 以后扁平结构，范围版本不满足则在子目录安装，这一步称为构建依赖树，主要是理解一个一个依赖的处理，遇到相同依赖不同版本会出现不一样的结果（依赖的不确定性导致lock文件的必要性）
  *            1.2 lock 文件描述的信息
@@ -50,6 +52,7 @@
  *                如何理解npm 和 yarn 混用会造成的问题，yarn.lock 和package-lock.json有什么区别
  *            1.5 扁平化，缓存，与lcok文件冲突的处理
  *      2.1.2 镜像管理
+ *      2.1.3 npm run/ bin目录的意义
  * 3. 打包工具取舍和对比
  * 4. babel 的理解
  *  4.1 Babel是一个工具集，主要用于将ES6版本的JavaScript代码转为ES5等向后兼容的JS代码，从而可以运行在低版本浏览器或其它环境中。（7.x 之后版本差异较大）
@@ -62,5 +65,23 @@
  *      4.1.4.3 @babel/preset-env这个npm包提供了ES6转换ES5的语法转换规则，我们在Babel配置文件里指定使用它
  *      4.1.4.4 polyfill 一般结合现代构建工具形成研发体系
  *      4.1.4.5 preset和plugin， 前者其实就是一系列的插件包
+ *      4.1.4.6 babel-plugin-transform-runtime: 从语法和api转换考虑，主要解决提供运行时的api和一些helper, 避免修改全局对象&重复打包相同依赖
+ *
+ * ==============================>
+ * 5.基于 lerna 的项目结构
+ *   5.1 主要解决什么问题
+ *    其实目的还是做更好的工程化，将基建和业务分离，业务作为独立的repo,基建作为合并的 lerna 项目
+ *    统一基建的公共能力，避免重复建设
+ *    有依赖的项目自动link, 有助于本地调试，主要是互相依赖的多子包管理方案（可以自动更新依赖）
+ *   5.2 一些主要场景（lerna 一些基本命令）
+ *    npm包管理: lerna Bootstrap 为所有子包安装依赖，并且自动link(本地调试优势)，需要注意几个问题
+ *      1. lerna add 和 npm install 都是安装依赖，但是出发点不一样
+ *      2. semver 的依赖版本预期安装到根目录（有点像 npm i 的扁平化管理，不知道lerna 能否支持）
+ *      3. publish: 会对比子包的更新，从而更新version，相应的更新在其它项目的引用（相比npm publish 一个个修改维护）
+ *      4. clean: 删除全部的node_module 文件（怎么处理缓存和log 文件）
+ *  5.3 直观上的好处
+ *    构建发布脚本可以复用，共同建设
+ *    更方便的多包管理模式（自动处理之前 npm 单独发包的一些问题，看起来不是新东西）
+ *    在产出层面有可规划的方案，有助于沉淀团队基建能力
  *
  */

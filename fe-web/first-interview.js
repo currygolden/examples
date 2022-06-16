@@ -1,10 +1,18 @@
 /* 2021年4月
 面试是双向选择，要处理好自己的节奏
 面试的核心就是 背题背题背题背题，此外描述好自己的项目，准备3个左右的亮点
+这里需要罗列大概会涉及到的问题，具体拆解见其它的目录
 
 
-1. js 相关的基础
+1. js 基础
 2. 业务相关的vue框架
+
+
+
+
+
+10. 前端工程化
+
 
 
 */
@@ -73,7 +81,7 @@ const preViewLayer = function(root = {}) {
     }
     current = stack.pop()
     current = current.right
-  } 
+  }
   return res
 }
 
@@ -82,7 +90,7 @@ const preViewLayer = function(root = {}) {
   2. reject
   3. then - 异步
   4. 链式调用
-  5. all race 
+  5. all race
 */
   const pend = 'pending'
   const reject = 'rejected'
@@ -165,15 +173,15 @@ const preViewLayer = function(root = {}) {
       }
     })
   }
-    
-  
 
 
 
 
-/* 
+
+
+/*
 整体进度 回顾
-1. js 基础体系 
+1. js 基础体系
 2. 前端框架基本知识点
 3. css 基本知识点
 4. 工程化方案的了解，webpack 的使用经验
@@ -192,7 +200,7 @@ const preViewLayer = function(root = {}) {
 4. 防抖，节流
 5. promise 以及 常见方法的实现
 6. 观察者模式
-7. instanceof 
+7. instanceof
 8. 数组去重，扁平
 9. es5的继承
 
@@ -202,7 +210,7 @@ const preViewLayer = function(root = {}) {
 
 
 
-/** 
+/**
  * 项目经历
  * 1. 单车H5项目
  *  1.1 业务梳理
@@ -223,8 +231,8 @@ const preViewLayer = function(root = {}) {
  *  性能优化治理
  *  质量体系建立
  *  CI/CD&部署对标最佳实践
- *  
- * 
- * 
- * 
+ *
+ *
+ *
+ *
  * */

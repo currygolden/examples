@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-06-04 21:59:02
+ * @LastEditTime: 2022-06-13 22:42:23
  * @LastEditors: liyu38 liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
@@ -70,8 +70,6 @@ some practice
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510
 
-- 资源收藏 https://juejin.cn/post/6978856784752541710
-
 
 
 
@@ -101,6 +99,7 @@ some practice
 - 刷题 https://github.com/Advanced-Frontend/Daily-Interview-Question/blob/master/datum/summary.md
 - 掘金的一系列刷题文章 https://juejin.cn/post/6844903976081555470
 - 自测 简历准备 https://juejin.cn/post/6844903682455109640
+- 面试准备 https://juejin.cn/post/6887563385886474254
 - 刷题站点 https://fe.ecool.fun/
 
 

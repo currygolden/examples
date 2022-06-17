@@ -5,8 +5,12 @@
 
 
 1. js 基础
-2. 业务相关的vue框架
-
+2. vue框架
+  2.1 项目的vue引入的是runtime 还是runtime+complier，二者区别是
+    complier 处理template为render函数，但是vue-loader在构建时可以做包括开发和线上包，所以一般不需要complier
+  2.5 vue-router
+    对 SPA 单页面的理解，它的优缺点分别是什么
+    vue-router 是如何实现的
 
 
 

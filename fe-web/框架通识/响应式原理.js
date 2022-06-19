@@ -108,3 +108,24 @@ const p = new Proxy(person, {
     return Reflect.deleteProperty(target, propName)
   }
 })
+
+
+
+
+/**
+ * 系统介绍vue响应式原理
+ * 1. 什么是响应式
+ *    1.1 将数据渲染到dom不是，从model到view也不是，数据的更新如何触发视图的修改
+ *    1.2 响应式数据一般指data,props,计算属性，在初始化阶段做了一些处理，主要就是代理属性和响应式处理数据
+ *        代理是指类似data和prop的访问形式，其实就是改写了set和get 方法，使其看起来是操作this
+ *    1.3 处理props的响应式用的是 defineReactive，而处理data是通过 observe 方法
+ *        observe： 给非 VNode 的对象类型数据添加一个 Observer，形如val.__ob__ 的属性
+ *        Observer类的实现：
+ *          1. def函数：给value添加__ob__属性，即一个 Observer，通过 Object.defineProperty 方法
+ *          2. dep属性：通过new Dep()创建该属性
+ *          3. 对数组和对象分别做响应式处理
+ *            处理对象：defineReactive，主要就是定义属性的getter&setter,对子属性递归处理
+ * 
+ * 
+ * 
+  */

@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-06-13 22:42:23
- * @LastEditors: liyu38 liyu38@meituan.com
+ * @LastEditTime: 2022-06-20 19:47:29
+ * @LastEditors: liyu liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
 -->
@@ -66,6 +66,9 @@ some practice
 - https://juejin.cn/post/6923922117268340750 前人的基础理论经验
 - https://juejin.cn/team/6984296204297306148/posts 字节基础架构团队
 - https://juejin.cn/user/1292681407377624/posts 流水账
+- https://www.zoo.team/ 政采 team 文章
+- https://juejin.cn/post/6994959998283907102 林三心文章
+- https://juejin.cn/user/4054654613718350 有沉淀的作者
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510

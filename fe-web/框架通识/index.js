@@ -24,10 +24,16 @@ https://ustbhuangyi.github.io/vue-analysis/v2
     initProvide(vm) // resolve provide after data/props
     callHook(vm, 'created')
     之后就需要处理$mount
-  2. $mount需要关注
-    通过render函数生成Vnode,这个 render函数可以是由template转化来
-    这里存在一个渲染函数的观察者
-    update调用从Vnode 到 html
+  2. $mount主要做了哪些事情
+    把 el 或者 template 字符串转换成 render 方法，是调用 compileToFunctions 方法实现的
+    执行 mountComponent，会实例化一个渲染Watcher，在此方法中调用 vm._render 方法先生成虚拟 Node， 最终调用 vm._update 更新 DOM
+    vm._render实际调用了 createElement 来生成vnode（从而建立了vdom的设计），vnode一般是指对dom节点的描述，当然也包含组件的Vnode
+    有了前一步的vNode tree，通过vm._update渲染成真实的dom,在此之前需要vm.__patch__（也就是典型的diff算法实现）
+    最后createElm 生成并插入dom节点
+  3. 以上的构成了从数据到dom的过程，包括初始化和更新
+
+
+
 
 2. 组件化设计
   2.1 组件的生命周期

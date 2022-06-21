@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-02-26 18:49:45
- * @LastEditTime: 2022-06-01 09:59:10
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-06-21 19:12:40
+ * @LastEditors: liyu liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/index.js
  * 参考阅读汇集
@@ -75,6 +75,10 @@
  *   工程适配是一个技术场景，也应该是完整的技术工程方案，需要考虑到综合情况
  * 2. 系统微前端迁移
  * 3. PC端移动端适配
+ * 4. 项目基建能力建设
+ * 5. 开发提效建设
+ * 6. 稳定性建设&监控体系
+ * 7. CI/CD 能力建设
  *
  *
  *

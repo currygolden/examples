@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-03-14 11:08:38
- * @LastEditTime: 2022-03-14 17:04:02
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-06-21 18:52:08
+ * @LastEditors: liyu liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/js-learning/data-type.js
  */
@@ -17,6 +17,7 @@
  * 4. 不建议用new来创建基本类型的包装类 Number,String等
  * 5. 0.1+0.2为什么不等于0.3 在价格运算的类型中经常会碰到
  *  5.1 双精度64位浮点
+ *  5.2 对于数据计算是否有业务实践
  * 6. js 的数据类型判断
  *  6.1 typeof 返回类型的string,但对于引用数据类型，除了函数之外，都会显示"object"
  *  6.2 p1 instanceof Person,判断A是否为B的实例

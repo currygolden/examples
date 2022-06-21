@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-11 14:16:47
- * @LastEditTime: 2022-06-14 17:05:31
+ * @LastEditTime: 2022-06-21 20:51:35
  * @LastEditors: liyu liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/bundle.js
@@ -9,6 +9,8 @@
  * 1. https://cloud.tencent.com/developer/article/1555982 npm install 原理
  * 2. https://www.jiangruitao.com/babel/introduction/ babel 教程
  * 3. https://www.ruanyifeng.com/blog/2016/10/npm_scripts.html npm script
+ * 4. https://juejin.cn/post/7060844948316225572 npm&yarn的原理对比
+ * 5. https://juejin.cn/post/6844904022080667661 包依赖管理的工程实践
  */
 /**
  * 1. 模块化方案的演进
@@ -34,12 +36,14 @@
  *     2.1 npm 工具
  *      2.1.1 npm发包和管理
  *        2.1.1.1 输出 dist 格式
+ *          看产出包应用于什么环境，近代web场景主要提供3-4类模块方案
  *        2.1.1.2 package.json 常见字段定义
  *          "dependencies": Packages required by your application in production."，这里的文件如果作为依赖包（宿主项目）也会下载到node_module
  *          "devDependencies": Packages that are only needed for local development and testing.
  *          "peerDependencies": 解决核心包依赖的冲突问题，此时保证宿主和当前包的依赖相同，上升到宿主环境
  *          "typings": 告诉第三方模块从哪里获取类型定义，一般都是集中化管理
  *          1.  npm install 的安装流程
+ *            1.0 检查并获取 npm 配置即npmrc 文件，检查lock.json文件并对比和package.json版本差异，之后不同npm 版本处理存在差异
  *            1.1 3.x 以后扁平结构，范围版本不满足则在子目录安装，这一步称为构建依赖树，主要是理解一个一个依赖的处理，遇到相同依赖不同版本会出现不一样的结果（依赖的不确定性导致lock文件的必要性）
  *            1.2 lock 文件描述的信息
  *              dependencies：只有子依赖的依赖和当前已安装在根目录的  node_modules 中的依赖冲突之后，才会有这个属性
@@ -50,9 +54,15 @@
  *              对于npm包而言，由于lock.json会固定版本，此时install 无法共享范围版本，造成依赖冗余（这句话要理解npm install 的原理）
  *            1.4 package-lock.json的处理
  *                如何理解npm 和 yarn 混用会造成的问题，yarn.lock 和package-lock.json有什么区别
- *            1.5 扁平化，缓存，与lcok文件冲突的处理
+ *            1.5 扁平化安装，缓存，与lcok文件冲突的处理
+ *                扁平化安装不再赘述
+ *                缓存：根据 package-lock.json 中存储的 integrity、version、name 信息生成一个唯一的 key，下次再安装可以直接从缓存目录读到目标目录的node_module
+ *            1.6 使用相关钩子处理包管理工具的差异
  *      2.1.2 镜像管理
  *      2.1.3 npm run/ bin目录的意义
+ *          2.1.3.1 npm run 实际是启动一个shell,然后拓展了path环境变量,这些局部使用的命令来自于/bin 目录，它实际来自于安装包自行提供的bin字段，属于软链接
+ *          2.2.3.2 npx 可以临时安装，使用完删除，而且npx 可以直接执行/bin目录下命令，相比npm run 更简洁
+ *      2.1.4 ci环境的npm工程场景
  * 3. 打包工具取舍和对比
  * 4. babel 的理解
  *  4.1 Babel是一个工具集，主要用于将ES6版本的JavaScript代码转为ES5等向后兼容的JS代码，从而可以运行在低版本浏览器或其它环境中。（7.x 之后版本差异较大）

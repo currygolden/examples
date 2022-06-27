@@ -1,6 +1,5 @@
-import { nextTick } from "q";
 
-/* 
+/*
 参考文章 https://juejin.im/post/5afd2ff26fb9a07aaa11786c
 https://segmentfault.com/a/1190000018428848
 */
@@ -13,7 +12,7 @@ const promiseIns = new Promise ((resolve, reject) => {
 })
 
 // api
-/* 
+/*
   确定promise方法的回调，取决于状态
   fail一般不写，在catch中获取
 */
@@ -22,7 +21,7 @@ promiseIns.then(success,fail).catch()
 
 
 // 如何设计一个promise
-/* 
+/*
   excutor是V8实现的，形参包括resolve,reject | function
   promise的状态在哪改动的
 */
@@ -39,7 +38,7 @@ function Promise(excutor) {
   that.successCallbacks = [] // success回调
   that.failCallbacks = [] // fail回调
 
-  /* 
+  /*
     实现简易版resolve
     修改状态，传递参数给then
     表明resolve处理和执行回调的先后顺序
@@ -47,7 +46,7 @@ function Promise(excutor) {
   function resolve (value) {
     // 传入promise对象
     if (typeof value === Promise) {
-      // 
+      //
       value.then()
     }
     // 没有then的时候successCallbacks从哪来的
@@ -63,7 +62,7 @@ function Promise(excutor) {
     })
   }
 
-  /* 
+  /*
     实现reject，没什么可写的
   */
   function reject(reason) {
@@ -72,7 +71,7 @@ function Promise(excutor) {
       this.status = 'rejected'
     }
   }
-  /* 
+  /*
     全局错误接受
   */
   try {
@@ -84,7 +83,7 @@ function Promise(excutor) {
 
 }
 
-/* 
+/*
   promise的状态随意，但是回调的执行需要异步
   1: then的回调在下一轮时间循环执行
   2: then方法返回promise对象，支持链式调用
@@ -145,7 +144,7 @@ function resolvePromise(promise2, res, resolve, reject) {
   }
 }
 
-/* 
+/*
   实现promise-all
   当所有实例均为fulfilled,reslove全部实例的参数
   返回一个promise 对象
@@ -176,7 +175,7 @@ Promise.all = function(promiseArr) {
   })
 }
 
-/* 
+/*
   race方法实现
 */
 Promise.race = function(promiseArr) {
@@ -207,7 +206,7 @@ Promise.retry = (fn, times = 5, tryTimes = 0) => {
   })
 }
 
-/* 
+/*
 批量请求函数 multiRequest(urls, maxNum)
 urls: 所有的待访问url
 要求最大并发数 maxNum
@@ -256,7 +255,7 @@ async function multiRequest(urls, maxNum) {
   })
 }
 
-/* 
+/*
 实现 a, a+b , a+2b的间隔执行
 停止以上间隔
 */

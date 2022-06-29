@@ -1,36 +1,26 @@
-import { nextTick } from "q";
 
-/* 
-参考文章 https://juejin.im/post/5afd2ff26fb9a07aaa11786c
+/*
+参考文章
+类似文章搜：promiseA+规范
 https://segmentfault.com/a/1190000018428848
 */
 
-const promiseIns = new Promise ((resolve, reject) => {
-  // 分别用来转换状态
-  // 实际的结果或者错误一般交给then对应的回调
-  resolve(data)
-  reject(err)
-})
-
-// api
-/* 
-  确定promise方法的回调，取决于状态
-  fail一般不写，在catch中获取
-*/
-promiseIns.then(success,fail).catch()
-
-
-
-// 如何设计一个promise
-/* 
-  excutor是V8实现的，形参包括resolve,reject | function
-  promise的状态在哪改动的
-*/
+/**
+ * @description 拆解promise主要流程
+ * feature分析
+ * 1. Promise构造函数接受executor，形参包含resolve，reject
+ * 2. promise 只能从 pending 到 rejected, 或者从 pending 到 fulfilled
+ * 3. 实现构造函数，实现resolve, reject逻辑
+ * 4. 实现then方法（核心）
+ * 5. 实现原型函数 then
+ * 6. 实现类函数
+ * 7. 完善单元测试
+ */
 const PENDING = "pending"
-const FULFILLED = "fulfilled"
+const FULFILLED = "fullfilled"
 const REJECTED = "rejected"
-
-function Promise(excutor) {
+function Promise(executor) {
+  // 缓存this,避免后续被修改指向
   let that = this
   // 定义私有属性
   that.status = PENDING
@@ -39,61 +29,46 @@ function Promise(excutor) {
   that.successCallbacks = [] // success回调
   that.failCallbacks = [] // fail回调
 
-  /* 
-    实现简易版resolve
-    修改状态，传递参数给then
-    表明resolve处理和执行回调的先后顺序
+  /*
+    1. 修改状态，处理返回值，处理回调
   */
   function resolve (value) {
-    // 传入promise对象
-    if (typeof value === Promise) {
-      // 
-      value.then()
+    if (that.status === PENDING) {
+      that.status = FULFILLED
+      // 获取resolve传入的参数
+      that.value = value
+      // 执行回调
+      that.successCallbacks.forEach(cb => cb(that.value))
     }
-    // 没有then的时候successCallbacks从哪来的
-    // then方法执行需要设计成异步
-    setTimeout(() => {
-      if (that.status === PENDING) {
-        that.status = FULFILLED
-        // 获取resolve传入的参数
-        that.value = value
-        // 执行回调
-        that.successCallbacks.forEach(cb => cb(that.value))
-      }
-    })
   }
 
-  /* 
-    实现reject，没什么可写的
-  */
   function reject(reason) {
-    if (this.status = 'pending'){
-      this.reason = reason
-      this.status = 'rejected'
+    if (that.status = 'pending'){
+      that.status = 'rejected'
+      that.reason = reason
+      that.failCallbacks.forEach(fn => fn(reason))
     }
   }
-  /* 
-    全局错误接受
-  */
+
+  // 处理resolve，reject或者直接throw的场景
   try {
-    // resolve, reject是excutor的形参，会默认执行，包裹起来是为了拿到最外面的错误信息
-    excutor(resolve, reject)
+    executor(resolve, reject)
   } catch (e) {
     reject(e)
   }
 
 }
 
-/* 
-  promise的状态随意，但是回调的执行需要异步
-  1: then的回调在下一轮时间循环执行
-  2: then方法返回promise对象，支持链式调用
-    这里then方法的返回值有两种
-  3.新增
-    promise.then 的promise状态有三种，如果是pending 代表是异步调用，这种情况是resolve在定时器调用
-*/
+/**
+ * 1. then方法的入参判断，包装
+ * 2. promise对象具有then方法，需要判断当前对象的状态
+ *    2.1 等待：收集相应的回调函数（push 队列），then的回调执行需要是微任务，所以用setTimeout包装
+ *    2.2 成功/失败：都是异步执行，都需要判断then返回的promise与回调的返回值
+ * 3. then方法返回的promise应该是什么状态，取决于回调函数自身（主动reject,抛错，其它大多都是resolve状态）
+ *
+ */
 Promise.prototype.then = (onFulfilled, onRejected) => {
-  // 判断回调是否为函数，处理值穿透
+  // 判断回调是否为函数，处理值穿透,不是函数包装成函数
   onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
   onRejected = typeof onRejected === 'function' ? onRejected : reason => { throw reason }
 
@@ -135,17 +110,44 @@ Promise.prototype.then = (onFulfilled, onRejected) => {
   })
   return promise2
 }
-// 处理then返回的promsie与回调函数返回值
+// 判断then返回的promsie与回调函数返回值，处理新的promise 的张泰
 function resolvePromise(promise2, res, resolve, reject) {
-  if (res !== null && (typeof res === 'object' || typeof res === 'function')) {
-    // 如果返回promise就递归解析
+  let that = this
+  // 区别then的返回值与回调的返回值
+  if (promise2 === res) {
+    reject(new TypeError('Chaining cycle'))
+  }
+  // 如果返回promise或者有then方法会递归解析
+  if (x instanceof Promise) {
+    x.then(resolve, reject)
   } else {
     // 原始类型
     resolve(res)
   }
 }
 
-/* 
+/**
+ * @description 实现Promise.resolve
+ * 1. promise直接返回
+ * 2. 原始值包裹
+ * 3. 包含then方法：最后状态取决于then结果
+ */
+Promise.resolve = function(val) {
+  if (val instanceof Promise) {
+    return val
+  }
+  return new Promise((resolve, reject) => {
+    // thenable
+    if (val && val.then && typeof val.then === 'function') {
+      // 自行模拟的then都是异步
+      val.then(resolve, reject)
+    } else {
+      resolve(val)
+    }
+  })
+}
+
+/*
   实现promise-all
   当所有实例均为fulfilled,reslove全部实例的参数
   返回一个promise 对象
@@ -176,7 +178,7 @@ Promise.all = function(promiseArr) {
   })
 }
 
-/* 
+/*
   race方法实现
 */
 Promise.race = function(promiseArr) {
@@ -207,7 +209,7 @@ Promise.retry = (fn, times = 5, tryTimes = 0) => {
   })
 }
 
-/* 
+/*
 批量请求函数 multiRequest(urls, maxNum)
 urls: 所有的待访问url
 要求最大并发数 maxNum
@@ -256,7 +258,7 @@ async function multiRequest(urls, maxNum) {
   })
 }
 
-/* 
+/*
 实现 a, a+b , a+2b的间隔执行
 停止以上间隔
 */

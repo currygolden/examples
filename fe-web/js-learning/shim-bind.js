@@ -1,3 +1,11 @@
+/*
+ * @Author: liyu38 liyu38@meituan.com
+ * @Date: 2022-03-11 22:58:43
+ * @LastEditors: liyu38 liyu38@meituan.com
+ * @LastEditTime: 2022-07-02 17:40:26
+ * @FilePath: /examples/fe-web/js-learning/shim-bind.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 // https://github.com/mqyqingfeng/Blog/issues/12
 /*  
   apply 仅仅是绑定this
@@ -38,10 +46,11 @@ Function.prototype.call2(context, ...args) = function() {
 bind方法
 1: 绑定this,
 2: 返回函数且支持分步传参
+3: 属于函数方法
 */
 Function.prototype.bind2 = function(context) {
   // 获取this
-  // context是要绑定的this
+  // context是要绑定的this，注意在外层
   var self = this
   var args = Array.prototype.slice.call(arguments,1)
 

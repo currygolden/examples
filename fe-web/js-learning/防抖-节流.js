@@ -18,7 +18,7 @@ function debounce(func, time) {
     var context = this
     var args = arguments
     clearTimeout(timeout)
-    timeout = setTimeout(func.apply(context,args), time)
+    timeout = setTimeout(func.apply(context,[...args]), time)
   }
 }
 

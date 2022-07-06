@@ -2,12 +2,9 @@
  * @description 介绍设计模式
  * 参考文章
  * https://www.runoob.com/design-pattern/visitor-pattern.html
- *
+ * 发布与订阅模式，vue事件绑定
  *
  */
-发布与订阅模式
-vue事件绑定
-*/
 function EventEmitter() {
   this._events = Object.create(null)
 }

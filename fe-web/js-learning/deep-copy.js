@@ -1,22 +1,19 @@
-import { func } from "prop-types";
-import { Hash } from "crypto";
 
-/* 
+/*
 涉及的知识点：
 原始/引用类型，堆栈保存
 https://github.com/yygmind/blog/issues/25
-https://juejin.im/post/5bc1ae9be51d450e8b140b0c
 */
 
 
-/* 
+/*
 实现浅拷贝
 Object.assign()
 数组slice,concat等非变异方法
 */
 
 
-/* 
+/*
 JSON.parse(JSON.stringify(obj))
 无法处理Date,function,undefined等
 */
@@ -38,11 +35,11 @@ function shallowClone(source) {
     }
 }
 
-/* 
-考虑： 1入参类型
-      2递归处理
-      3循环引用 设置weakMap
-      4递归爆栈  
+/*
+考虑： 1实现基本的深拷贝
+      2参数边界类型，入参类型
+      3循环引用 设置weakMap: 强弱引用关系，优化内存GC
+      4递归优化（BFS）
 */
 // 严格判断数据类型
 function typeCheck(item) {
@@ -66,7 +63,7 @@ function deepClone(source, resMap = new WeakMap()) {
     if (Object.prototype.hasOwnProperty.call(source,key)) {
       if (isObject(source[key])) {
         // 这里是dfs处理
-        deepClone(source[key])
+        deepClone(source[key], resMap)
       } else {
         // 直接赋值
         target[key] = source[key]
@@ -86,14 +83,22 @@ function bfsCopy(source) {
   var quene = [source]
 
   while(quene.length) {
+    // var tmp = quene.shift()
+    // if (isObject(tmp)) {
+    //   // 同一层子节点全部入队列
+    //   for(var key in tmp) {
+    //     quene.push(tmp[key])
+    //   }
+    // } else {
+    //   target.push(tmp)
+    // }
+
     var tmp = quene.shift()
     if (isObject(tmp)) {
-      // 同一层子节点全部入队列
-      for(var key in tmp) {
-        quene.push(tmp[key])
-      }
+
     } else {
-      target.push(tmp)
+
     }
+
   }
 }

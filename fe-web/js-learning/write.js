@@ -1,18 +1,20 @@
 /**
  * 主要记录常见的手写实现（考察基础的逻辑能力&业务代码debug能力）
  * 参考阅读
- *
- *
+ * ======js专题系列========
  * 1. 防抖&节流
  * 2. call&apply&bind
  * 3. 深浅拷贝
- * 4. 数组扁平化
+ * 4. 数组扁平化,去重,最值
  * 5. BFS/DFS递归遍历
  * 6. 数组常见方法实现
  * 7. 模拟实现new
  * 8. 模拟实现call/apply
  * 9. 模拟实现bind
  * 10. 观察者模式实现
+ * 11. 函数的curry
+ * 12. 实际应用封装axios
+ * 13. 实现单例模式
  *
  *
  *
@@ -147,5 +149,17 @@ function myDebounce(fn, wait, now) {
 const say = function(val) {
   console.log(996+ val)
 }
-myDebounce(say, 3000, true)('NB')
-
+// myDebounce(say, 3000, true)('NB')
+/**
+ * @description 数组去重
+ * 1. new Set()
+ * 2. hashMap
+ * 3. indexOf + filter
+ */
+function uniqueArr(arr = []) {
+  const res = Array.from(new Set(arr))
+  console.log('arr', res)
+  // return Array.from(new Set(arr))
+}
+uniqueArr([1,2,3,4,4,2,1,3])
+uniqueArr([1,2,3,4,4,2,1,3,'1','2','3','4', '2'])

@@ -1,12 +1,41 @@
 /*
  * @Author: your name
  * @Date: 2022-03-11 19:58:28
- * @LastEditTime: 2022-04-18 10:57:21
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2022-07-06 20:14:14
+ * @LastEditors: liyu liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/leetcode/算法.JS
  * 参考阅读
  * 1. https://github.com/ConardLi/awesome-coding-js/blob/master/%E7%AE%97%E6%B3%95%E5%88%86%E7%B1%BB/%E6%8E%92%E5%BA%8F/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F.md
+ *
+ *
+ * 总体目录如下
+ * 1. 排序算法
+ *
+ *
+ *
+ *
+ * 10.二叉树
+ * 11.字符串
+ *    11.1 常见正则模式
+ *    11.2 字符串本身方法/场景case和边界问题
+ *    11.3 字符串的全排列
+ * 12.数组
+ *    12.1 双指针
+ *      12.1.1 数组中调整奇偶数顺序
+ *      12.1.2 递增数组寻找两数和为S，乘积最小
+ *      12.1.3 和为S的连续序列
+ *      12.1.4 N数之和
+ *      12.1.5 连续子向量的最大值
+ *    12.2 特殊排序
+ *      12.2.1 将数组排序成最小的数
+ * 13. 二叉树
+ *    树的结构&节点的结构
+ *    13.1 实现一个二叉树
+ *    13.2 三种方式&2 遍历二叉树
+ *    13.3 根据遍历结果重建二叉树
+ *
+ *
  */
 
 
@@ -176,4 +205,10 @@ function merge(left, right) {
 /**
  * @description: 二叉树部分
 
+ */
+
+
+/**
+ * @description: 字符串
+ *
  */

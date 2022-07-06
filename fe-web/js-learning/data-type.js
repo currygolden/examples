@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-03-14 11:08:38
- * @LastEditTime: 2022-06-21 18:52:08
+ * @LastEditTime: 2022-07-05 17:36:25
  * @LastEditors: liyu liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/js-learning/data-type.js
@@ -41,6 +41,20 @@
  * 		9.4.2 代码编译成机器码保存起来，这个用来编译的工具就是V8的编译器(也叫做TurboFan)
  * 		9.4.3 由解释器逐行执行字节码，遇到热点代码启动编译器进行编译，生成对应的机器码, 以优化执行效率
  * 			字节码跟编译器和解释器结合的技术，我们称之为即时编译, 也就是我们经常听到的JIT
+ * 10. let & const
+ *  10.1 块级声明用于声明在指定块的作用域之外无法访问的变量。(跟之前作用域链寻找有差异)
+ *  10.2 不会被提升（报错与undefeated的区别），重复声明报错
+ *  10.3 循环中的块级作用域
+ *  10.4 babel的编译变现
+ * 11. 箭头函数
+ *  11.1 箭头函数被非箭头函数包含，this 绑定的就是最近一层非箭头函数的 this
+ *  11.2 没有 arguments，rest 参数的形式访问参数:
+ * 12. promise 实现
+ * 13. async
+ *  13.1 async 实现继发&并发
+ *  13.2 优化async的错误处理
+ *    13.2.1 实际是标准化处理promise的返回值
+ *    13.2.2 await会暂停，不过后面的promise完成就会继续执行（所以await 接常量，接定时器的场景好理解）
  */
 
  /**

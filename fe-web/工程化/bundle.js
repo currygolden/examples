@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-04-11 14:16:47
- * @LastEditTime: 2022-06-21 20:51:35
+ * @LastEditTime: 2022-07-07 19:34:35
  * @LastEditors: liyu liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/bundle.js
@@ -55,7 +55,7 @@
  *            1.4 package-lock.json的处理
  *                如何理解npm 和 yarn 混用会造成的问题，yarn.lock 和package-lock.json有什么区别
  *            1.5 扁平化安装，缓存，与lcok文件冲突的处理
- *                扁平化安装不再赘述
+ *                扁平化安装不再赘述，3.x之前是嵌套安装
  *                缓存：根据 package-lock.json 中存储的 integrity、version、name 信息生成一个唯一的 key，下次再安装可以直接从缓存目录读到目标目录的node_module
  *            1.6 使用相关钩子处理包管理工具的差异
  *      2.1.2 镜像管理
@@ -63,6 +63,11 @@
  *          2.1.3.1 npm run 实际是启动一个shell,然后拓展了path环境变量,这些局部使用的命令来自于/bin 目录，它实际来自于安装包自行提供的bin字段，属于软链接
  *          2.2.3.2 npx 可以临时安装，使用完删除，而且npx 可以直接执行/bin目录下命令，相比npm run 更简洁
  *      2.1.4 ci环境的npm工程场景
+ *      2.1.5 soft&hard link的区别
+ *          soft link: 保存了其代表的文件的绝对路径,若删除文件，链接消失
+ *          hard link: 跟具体的文件没有区别，指向硬盘相同位置
+ *      2.1.6 pnpm带来的改变
+ *
  * 3. 打包工具取舍和对比
  * 4. babel 的理解
  *  4.1 Babel是一个工具集，主要用于将ES6版本的JavaScript代码转为ES5等向后兼容的JS代码，从而可以运行在低版本浏览器或其它环境中。（7.x 之后版本差异较大）

@@ -8,6 +8,8 @@
     1.1 hash 路由修改路径，不会触发向服务器发请求，可以是a 标签，window.location，且hashchange可以监听路由变化
     1.2 pushState&replaceState 都是修改url栈，但是不刷新页面，这俩api 也可以触发 hashchange
     1.3 spa 技术是实现前后端分离的关键吗
+    1.4 拦截前面描述的url变化不发请求的事件，根据路由表对应渲染相应的组件
+      1.4.1 其它全局对象，路由组件，公共方法等具体实现
 2. 基于vue 实现vue-router
     2.1 从调用看router是一个class,可以作为vue 插件，说明有install
     2.2 初始化之后有组件方式调用，说明全局注册了组件
@@ -40,7 +42,7 @@ class VueRouter {
     this.routesMap = this.createMap(this.routes)
     // 当前路由实例
     this.history = new HistoryRoute()
-    this,init()
+    this.init()
   }
   // 初始化&添加两类监听事件
   init() {

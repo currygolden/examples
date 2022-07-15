@@ -3,6 +3,7 @@
 http 基础知识文章参考： https://juejin.cn/post/6844904100035821575
 tcp 知识点参考： https://juejin.cn/post/6844904070889603085
 浏览器参考：https://juejin.cn/post/6844903553795014663
+          https://github.com/poetries/browser-working-principle/blob/master/docs/guide/part1/lesson01.md(浏览器专题解读文章)
 */
 
 

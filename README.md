@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-06-25 11:51:36
+ * @LastEditTime: 2022-07-17 23:09:33
  * @LastEditors: liyu38 liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
@@ -71,6 +71,7 @@ some practice
 - https://juejin.cn/user/4054654613718350 有沉淀的作者
 - https://juejin.cn/user/2788017216685118/posts
 - https://juejin.cn/user/712139234347565/posts 比较综合的职业规划方向
+- https://developer.aliyun.com/group/alibabaf2e?spm=a2c6h.12873639.article-detail.6.17915108iz9vHJ#/?_k=08h6pd(淘宝技术专栏)
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510

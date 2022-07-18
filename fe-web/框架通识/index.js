@@ -62,6 +62,8 @@ https://juejin.cn/post/7043401297302650917
 
 5. vue的模版编译
   5.1 之前介绍vue包含runtime+complier版本，其中complier到底做了什么，render函数提供了v-dom，render从哪来的
+    5.1.1 解读render函数
+      render的参数包含createElement函数，用来生成Vnode
   5.2 处理编译目的是走到dom,此时beforecreate,create已经走完，数据的准备已经结束，create阶段主要是init，处理事件，生命周期，响应式，等等
   5.3 编译阶段主要是compileToFunctions(template)，判断template来源，可以是配置提供的，可以是根据el属性找到的，最终相当于mount阶段确定了renderFn
   5.4 compileToFunctions 包含parse & generate，很典型的Babel处理过程，此处不深究处理细节，待Babel学习之后再来回顾，目前了解主要流程即可

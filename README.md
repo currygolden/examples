@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-07-20 20:01:17
+ * @LastEditTime: 2022-07-21 20:42:36
  * @LastEditors: liyu liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
@@ -108,6 +108,16 @@ some practice
 - 面试准备 https://juejin.cn/post/6887563385886474254
 - 刷题站点 https://fe.ecool.fun/
 - https://vue3js.cn/ (聚合类型文章)
+
+### 一些学习项目
+- 脚手架（工程化）：基本是vue-cli/umi/ice/vite 等等（企业的实现都是folk/修改）
+- 组件库/函数库（物料积累）：参考开源组件/better-scroll等
+- 微前端：乾坤/社区案例分析/一些mt包
+- 跨端渲染：
+- 低代码：阿里技术体系
+- 可视化积累：
+- web端常见技术项目方法论积累
+
 
 
 ## 科学的学习方法

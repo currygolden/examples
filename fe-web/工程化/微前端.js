@@ -2,11 +2,14 @@
  * @Author: liyu38 liyu38@meituan.com
  * @Date: 2022-05-07 15:31:23
  * @LastEditors: liyu liyu38@meituan.com
- * @LastEditTime: 2022-07-19 20:39:32
+ * @LastEditTime: 2022-07-20 11:15:23
  * @FilePath: /examples/fe-web/工程化/微前端.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * 参考文档：
  *  https://juejin.cn/post/7004661323124441102
+ * https://github.com/woai3c/Front-end-articles/issues/31（教程）
+ * https://qiankun.umijs.org/ 乾坤
+ * node-module: 企业
  */
 /**
  * 1. 在业务中落地微前端实际遇到什么问题，或者说micro的目标是
@@ -78,6 +81,21 @@
  *         4.1 有oop的设计，看起来是管理实例，管理模版，初始化的时候更新配置&开启热更新
  *            4.1.1 createInstance：具有template，context
  *            4.1.2 template 是根据资源请求并处理静态资源，把静态资源插入到html中（至于最终节点往哪渲染会去找el属性，在容器组件里完成）
+ *            4.1.3 context 由实例和Registry新建（这里的构造类互相当属性）
+ * 6. 总结
+ *   6.1 组件即服务提供了动态化的视角，
+ *   6.2 应用级别的微前端是拦截路由，切换激活的子应用（失活旧的子应用）
+ *      6.2.1 此时入口是子应用的html,会做如下操作
+ *        1: 提取 HTML 中 script style 的内容或 URL，如果是 URL，则再次使用 ajax 拉取内容。最后得到入口页面所有的 script style 的内容
+ *        2: 将所有 style 添加到 document.head 下，script 代码直接执行
+ *        3: 将剩下的 body 部分的 HTML 内容赋值给子应用要挂载的 DOM 下
+ *          3.1 对于传统spa项目就是挂载点和动态插入的js，此时就可以保证子应用渲染后对应挂载
+ *      6.2.2 组件即服务的思想
+ *        1: 获取静态资源即可（无论是应用级别还是组件级别）
+ *        2: 容器组件负责组织静态资源，渲染实例，挂载dom,同时维护对应的生命周期钩子
+ *      6.2.3 版本管理/工程化角度设计
+ *        1: 子应用的上线管理，历史版本管理
+ *        2: 包治理，性能优化等等
  */
 
 

@@ -8,7 +8,7 @@
 // =======字符串系列  第一节
 // '(', ')', '{', '}', '[' and ']'一类标签是否输入合理
 
-/* 
+/*
   @param {string} s
   @return {boolean}
   和html的标签闭合规则比较类似
@@ -35,7 +35,7 @@ var isValid = function(str) {
 }
 
 
-/* 
+/*
 寻找字符串的最长子串长度
 */
 var getMaxStr = function(str) {
@@ -61,7 +61,7 @@ var getMaxStr = function(str) {
 // https://felxy.github.io/blog/2017/06/01/DFS-BFS/
 // DFS-BFS遍历Dom结构
 
-/* 
+/*
   递归，从根节点开始访问子元素
   node: 实际dom结构
   需要注意通过document.getElement之类的方法获取dom数据为arrayLike
@@ -78,7 +78,7 @@ const DFS = (node) => {
   Array.from(node.children).forEach(item => DFS(item, deep+1))
 }
 
-/* 
+/*
   BFS将同一层级的数据放入队列
   再按FIFO的顺序取出
 */
@@ -112,7 +112,7 @@ BFS(htmlObj)
 
 
 
-/* 
+/*
 计算时间间隔内的有效日期
 day1 = '2020-01-02'
 */
@@ -211,7 +211,7 @@ function handleMulLine() {
   let box = document.getElementById('text')
   let tmpStr = box.innerHTML || ''
   let H = box.offsetHeight // dom容器高度
-  
+
   for (let i = 0; i < tmpStr.length; i++) {
     box.innerHTML = tmpStr.substring(0, i)
     // 比较容器高度和滚动高度
@@ -231,7 +231,7 @@ function add(arr) {
     return item + next
   },0)
   return res
-} 
+}
 
 // 获取html中的最大标签数
 function getTagMap(root) {
@@ -249,7 +249,7 @@ function getTagMap(root) {
 
 // 平级数据转树形数据
 function listToTree(list = []) {
-  var map = {} 
+  var map = {}
   var resArr = []
   // 根据map的id来记录数据
   // 这里同时起到了去重的作用
@@ -287,7 +287,7 @@ function treeToList(tree = []) {
     resList.push(first)
   }
   return resList
-} 
+}
 
 
 // 转化对象嵌套key格式
@@ -298,11 +298,11 @@ function transformKey(obj = {}) {
       if (typeof(item) === 'object') {
 
       } else {
-        
+
       }
     }
   }
-  
+
 }
 
 // 处理url
@@ -345,7 +345,7 @@ function addNum(nums = [], target = n) {
 new ChainStuff().speak().call()
 
 
-/* 
+/*
   实现函数的curry,简单介绍场景
   感觉没有实际场景
 */
@@ -363,14 +363,14 @@ new ChainStuff().speak().call()
     const pathArr = path.replace(/\[(\d+)\]/g, ".$1").split('.') || []
     let result = source || {}
     for (let p of pathArr) {
-       result = Object(result[p]) 
+       result = Object(result[p])
        if (result == undefined) {
          return defaultValue
        }
     }
   }
 
-/* 
+/*
   实现发布订阅模式
   与观察者模式对比，存在一个调度中心
   参考vue的组件通信事件机制
@@ -403,7 +403,7 @@ new ChainStuff().speak().call()
     }
   }
 
-  /* 
+  /*
     平级数组转树
     树转平级数组
   */
@@ -439,7 +439,7 @@ var list = [
     parentId: 3
   }
 ]
-/* 
+/*
   DFS/BFS都可以
   借助map
 */
@@ -447,7 +447,7 @@ var list = [
     // 构建node
     let root = list[0] || {}
     list.shift()
-  
+
     let tree = {
       id: root.id,
       value: root.value,
@@ -470,7 +470,7 @@ var list = [
     return res
   }
 
-/* 
+/*
     遍历dom树，打印节点信息和层级
 */
   function getHtmlMes(obj, id = 1) {
@@ -497,14 +497,14 @@ var list = [
     return res
   }
 
-  /* 
+  /*
   树转平级数据
   BFS遍历的结构非常清晰
   */
   function treeToArr(obj) {
     let quene = [].push(obj)
     let res = []
-    
+
     while(quene.length) {
       let tmpObj = quene.shift() || {}
       const resObj = {
@@ -561,7 +561,7 @@ var list = [
     ]
   }
 
-  /* 
+  /*
   点击标签，打印标签名称
   参考 https://juejin.im/post/6844903731079675917 了解dom事件机制
   */
@@ -571,7 +571,7 @@ var list = [
  }
  document.getElementById('test').addEventListener('click', sayname, false)
 
-  /* 
+  /*
   按钮提交，接口防止重复调用
   特别是在订单提交的场景，和防抖还是有区别
   加锁，类似于将按钮loading的方法
@@ -584,7 +584,7 @@ var list = [
     }
   }
 
-  /* 
+  /*
   增删dom元素的class
   element.classList 本身是只读的，但是你可以使用 add() 和 remove() 方法修改它
   */
@@ -599,12 +599,12 @@ var list = [
   let res = false
   const tmpList = ele.classList || []
   if (tmpList.contain(str)) {
-    res = true 
+    res = true
   }
   return res
  }
 
- /* 
+ /*
  实现倒计时功能
  1. 计算间隔时间的d/h/m/s
  2. 对定时器的理解
@@ -620,7 +620,7 @@ function countDown() {
   var nowTime = new Date()
   var endTime = new Date("2020/10/25, 18:19:19")
   // 获取间隔秒的时间
-  var leftTime = parseInt((endTime.getTime() - nowTime.getTime()) /1000) 
+  var leftTime = parseInt((endTime.getTime() - nowTime.getTime()) /1000)
   // 计算日期
   var d = parseInt(leftTime / (24*60*60))
   var h = parseInt(leftTime % (24*60*60) /(60*60))
@@ -642,7 +642,7 @@ function fn() {
   }, time)
 }
 
-/* 
+/*
  判断html的标签是否闭合
 
 */
@@ -660,7 +660,7 @@ String.prototype.trim() = function() {
 // 扫描文件，批量读取并上传（创建读写流），结合webpack配置cdn
 
 
-/* 
+/*
 数据相加丢失精度
 大数相加
 库或者自定义，数据运算需要留意
@@ -728,7 +728,7 @@ function bigNumAdd(a, b) {
 
 
 // 算法系列算法系列算法系列算法系列算法系列算法系列算法系列
-/* 
+/*
 1: 冒泡排序
 */
 function bubbleSort(array) {
@@ -752,7 +752,7 @@ function bubbleSort(array) {
   return array
 }
 
-/* 
+/*
 2: 选择排序
 每次选择找到最小的元素放在最前面
 
@@ -773,7 +773,7 @@ function selectSort(array) {
   return array
 }
 
-/* 
+/*
 快速排序
 寻找基础元素，分治
 */
@@ -808,16 +808,16 @@ function qucikSort(array) {
 
 
 // ============== 二叉树 =======================
-/** 
+/**
  * 重点掌握遍历，非递归实现
  * DFS BFS
  * 整理几个典型场景
  * @params {Object} pre
- * 
+ *
  * 提供前序，中序，需要重构二叉树
- * 
+ *
  * 思路还是递归，获取左子树的前序，中序，以及右子树的前序，中序，长度为一的时候实例化节点
- * 
+ *
 */
 function generateTree(pre, mid) {
  if (pre.length === 0) return null
@@ -843,7 +843,7 @@ function generateTree(pre, mid) {
 /**
  * 二叉树的三种遍历 + 非递归实现
  * 递归类型写一种
- * 
+ *
  * root代表二叉树
  */
   function preOrderTree(root, result = []) {
@@ -878,7 +878,7 @@ function generateTree(pre, mid) {
 
  /**
   * 二叉树的镜像
-  * 
+  *
   */
 
   function mirror(root) {
@@ -894,11 +894,11 @@ function generateTree(pre, mid) {
   }
 
 
-  /** 
+  /**
    * 二叉树的按层遍历
    * 1: 类似遍历dom树或者相似的树形结构数据
    * 2: 了解队列实现的过程就不难
-   * 
+   *
   */
   const layerRunTree = (root) => {
     // 如果需要添加层级，好处理
@@ -916,7 +916,7 @@ function generateTree(pre, mid) {
     return res
   }
 
-  /* 
+  /*
   二叉树的路径求和
   提供二叉树，固定值，获取符合要求的路径
   */
@@ -933,13 +933,13 @@ function generateTree(pre, mid) {
  }
 
 
-  /* 
+  /*
   获取二叉树的最大深度
   */
 
   const getMaxDepth = (node, depth = 0) => {
     if (!node) return depth
-    if (node.left) getMaxDepth(node.left, depth + 1) 
+    if (node.left) getMaxDepth(node.left, depth + 1)
   }
 
 
@@ -964,7 +964,7 @@ function generateTree(pre, mid) {
 
 
 // ==============数据结构
-/* 
+/*
 ========= 数组 =========
 双指针
 ruduce迭代
@@ -972,18 +972,18 @@ ruduce迭代
 
 */
 /**
- * @description 
+ * @description
  * 寻找两数之和
  * 寻找两数之和，乘积最小
  * 和为s的连续正数序列
  * 连续序列使得和最大
- * 
+ *
  * 是否为有序数组，是否可以提前排序，利用map遍历变搜索
  * @param {number} s
  * @param {array} arr
- * @return {array} 
+ * @return {array}
  */
- 
+
 function getPlusNum(s, arr) {
   for (let i = 0; i < arr.length; i++) {
     let pre = arr[i]
@@ -996,7 +996,7 @@ function getPlusNum(s, arr) {
   }
 }
 
-/* 
+/*
 输入一个递增排序的数组和一个数字S，在数组中查找两个数，使得他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。
 1: 数组递增
 2: 乘积最小
@@ -1021,7 +1021,7 @@ function getPlusNum(array,s) {
   }
 }
 
-/* 
+/*
 输入一个正数S，打印出所有和为S的连续正数 序列
 这道题相对比较有难度
 当前序列与总和S的三种情况，维持当前序列还是需要有快慢指针
@@ -1031,7 +1031,7 @@ function getConsist(s) {
 }
 
 
-/* 
+/*
 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于数组的后半部分
 
 考虑降低空间复杂度
@@ -1049,11 +1049,11 @@ function changeOrderList(array) {
   return resList = singleList.concat(array)
 }
 
-/* 
+/*
 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那两个整数，并返回他们的数组下标
 */
 
-/* 
+/*
 给定数组，打印拼接的最小数字
 定义排序规则
 */
@@ -1083,7 +1083,7 @@ const getMinNum = (arr) => {
 
 
 
-/* 
+/*
 =============栈和队列===============
 1. 用两个栈实现队列
   1.1 主要是理解数据的压入弹出顺序
@@ -1091,11 +1091,11 @@ const getMinNum = (arr) => {
   2.1 思路同上,实现不难，主要理解执行的流程
 */
 
-/* 
+/*
 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效
 */
 
-/* 
+/*
 将多维数组转化为一维数组
 
 1: 递归场景
@@ -1127,7 +1127,7 @@ const getTrapMax = (arr = [], k = 0) => {
 
 
 
-/* 
+/*
   hashMap
   例子：缓存库/存储库的设计，实现deepclone
 
@@ -1135,3 +1135,11 @@ const getTrapMax = (arr = [], k = 0) => {
 
 */
 
+
+
+
+/**
+ * @description 链表常见结构
+ *
+ *
+ */

@@ -1,8 +1,8 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-07-17 23:09:33
- * @LastEditors: liyu38 liyu38@meituan.com
+ * @LastEditTime: 2022-07-20 20:01:17
+ * @LastEditors: liyu liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
 -->
@@ -107,6 +107,7 @@ some practice
 - 自测 简历准备 https://juejin.cn/post/6844903682455109640
 - 面试准备 https://juejin.cn/post/6887563385886474254
 - 刷题站点 https://fe.ecool.fun/
+- https://vue3js.cn/ (聚合类型文章)
 
 
 ## 科学的学习方法

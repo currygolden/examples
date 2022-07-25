@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-07-21 20:42:36
+ * @LastEditTime: 2022-07-25 14:21:12
  * @LastEditors: liyu liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
@@ -99,7 +99,8 @@ some practice
 ### 需要阅读的源码
 - vue 技术解密 https://ustbhuangyi.github.io/vue-analysis
 
-
+### typescript
+- 社区资料 https://github.com/type-challenges/type-challenges
 ### 刷题区域
 - 星球 https://github.com/lgwebdream/FE-Interview/blob/master/summarry/vue.md
 - 刷题 https://github.com/Advanced-Frontend/Daily-Interview-Question/blob/master/datum/summary.md

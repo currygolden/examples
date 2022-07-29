@@ -3,6 +3,7 @@ https://juejin.cn/post/6844903918753808398
 https://ustbhuangyi.github.io/vue-analysis/v2
 https://vue-js.com/learn-vue/
 https://juejin.cn/post/7043401297302650917
+https://www.zhihu.com/question/31809713/answer/53544875
 
 这四类文章能把vue 知识体系串起来，只能说常读常新，合适的时候带着目的去阅读vue 源码
 

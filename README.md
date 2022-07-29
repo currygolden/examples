@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-07-25 14:21:12
+ * @LastEditTime: 2022-07-29 13:17:03
  * @LastEditors: liyu liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
@@ -13,6 +13,7 @@ some practice
 ## 参考文章合集 https://juejin.im/post/5e8b163ff265da47ee3f54a6#heading-18
 ## 参考文章第二部分 https://lucifer.ren/fe-interview/#/
 ## 前端算法https://juejin.im/post/5d5b307b5188253da24d3cd1
+## 算法合集 https://labuladong.github.io/algo/1/
 ## 算法回顾https://juejin.im/post/6844904061947346957#heading-75
 ## 腾讯云文档地址：跟踪最新技术方向 https://cloud.tencent.com/document/product/876
 
@@ -72,6 +73,7 @@ some practice
 - https://juejin.cn/user/2788017216685118/posts
 - https://juejin.cn/user/712139234347565/posts 比较综合的职业规划方向
 - https://developer.aliyun.com/group/alibabaf2e?spm=a2c6h.12873639.article-detail.6.17915108iz9vHJ#/?_k=08h6pd(淘宝技术专栏)
+- https://www.processon.com/view/link/61c53fb31efad45a2b42afd9#outline（一些文章汇总）
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510

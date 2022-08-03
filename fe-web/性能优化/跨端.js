@@ -51,3 +51,9 @@
  *
  *
  */
+
+/**
+ * @des 范式渲染的案例
+ * https://xrender.fun/generator： react方向
+ *
+ */

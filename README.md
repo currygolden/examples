@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-08-02 23:23:38
+ * @LastEditTime: 2022-08-06 23:41:05
  * @LastEditors: liyu38 liyu38@meituan.com
  * @Description: In User Settings Edit
  * @FilePath: /examples/README.md
@@ -111,7 +111,7 @@ some practice
 - 面试准备 https://juejin.cn/post/6887563385886474254
 - 刷题站点 https://fe.ecool.fun/
 - https://vue3js.cn/ (聚合类型文章)
-- https://juejin.cn/post/7098173433548111885（一些面试文章）
+- https://juejin.cn/post/7098173433548111885
 
 ### 一些学习项目
 - 脚手架（工程化）：基本是vue-cli/umi/ice/vite 等等（企业的实现都是folk/修改）

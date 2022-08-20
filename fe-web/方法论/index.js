@@ -1,8 +1,8 @@
 /*
  * @Author: liyu38 liyu38@meituan.com
  * @Date: 2022-03-05 12:32:18
- * @LastEditors: liyu liyu38@meituan.com
- * @LastEditTime: 2022-06-16 16:37:45
+ * @LastEditors: liyu38 liyu38@meituan.com
+ * @LastEditTime: 2022-08-07 20:53:19
  * @FilePath: /examples/fe-web/方法论/index.js
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -173,3 +173,21 @@
  *    4.3 人才培养
  *
  */
+
+/**
+ * @description 解读OKR
+ * 参考书籍
+ * 1. 这就是OKR
+ * 
+ * 
+ * 
+ * 
+ * 第一次阅读
+ *  1. 想法很容易，执行最重要，OKR就是目标与关键结果
+ *    1.1 什么是目标
+ *      1.1.1 目标应该结合企业或者部门的前进方向，阶段性需要实现的东西
+ *      1.1.2 目标的制定非常重要，需要自己和上级对齐，目标本身是可描述的，不是含糊不清的
+ *    1.2 什么是关键结果
+ *      1.2.1 需要是具体的，有时间限制（如一个季度）
+ *      1.2.2 最重要的是需要是可衡量与可验证的（如果没有数字可衡量，就不能算关键结果）
+  */

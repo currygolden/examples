@@ -1,8 +1,8 @@
 /*
  * @Author: your name
  * @Date: 2022-04-15 17:48:21
- * @LastEditTime: 2022-06-07 14:04:08
- * @LastEditors: liyu liyu38@meituan.com
+ * @LastEditTime: 2022-08-07 20:23:34
+ * @LastEditors: liyu38 liyu38@meituan.com
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: /examples/fe-web/工程化/vite.js
  * 参考阅读：
@@ -119,3 +119,15 @@
  *
  *   最终返回的 container 实例
 /
+
+
+/**
+ * @description 带着问题阅读
+ * 1. cli场景分类和对命令行参数的处理
+ *    1.1 如何结合实际自定义命令，处理一些工程问题
+ *    1.2 
+ * 
+ * 
+ * 
+ * 
+  */

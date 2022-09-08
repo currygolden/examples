@@ -11,6 +11,7 @@
  * 3. https://www.ruanyifeng.com/blog/2016/10/npm_scripts.html npm script
  * 4. https://juejin.cn/post/7060844948316225572 npm&yarn的原理对比
  * 5. https://juejin.cn/post/6844904022080667661 包依赖管理的工程实践
+ * 6. https://zhuanlan.zhihu.com/p/422740629 利用 pnpm 管理多package的实践
  */
 /**
  * 1. 模块化方案的演进

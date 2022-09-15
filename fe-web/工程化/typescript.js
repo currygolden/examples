@@ -1,7 +1,8 @@
 /**
  * ts 参考资料
  * 1. https://www.zhihu.com/column/c_206498766 知乎专栏
- * 2.
+ * 2. https://juejin.cn/post/6844904182843965453 ts教程
+ * 3. https://juejin.cn/post/6994102811218673700 类型解读
  *
  */
 /**

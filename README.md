@@ -74,6 +74,8 @@ some practice
 - https://juejin.cn/user/712139234347565/posts 比较综合的职业规划方向
 - https://developer.aliyun.com/group/alibabaf2e?spm=a2c6h.12873639.article-detail.6.17915108iz9vHJ#/?_k=08h6pd(淘宝技术专栏)
 - https://www.processon.com/view/link/61c53fb31efad45a2b42afd9#outline（一些文章汇总）
+- https://github.com/woai3c/introduction-to-front-end-engineering （介绍工程化配置）
+- https://juejin.cn/column/6992030342987120677 （有关编译和工程化）
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510

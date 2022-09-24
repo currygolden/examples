@@ -1,10 +1,9 @@
-/*
- * @Author: liyu38 liyu38@meituan.com
- * @Date: 2022-05-27 17:12:59
- * @LastEditors: liyu38 liyu38@meituan.com
- * @LastEditTime: 2022-06-04 18:15:54
- * @FilePath: /examples/fe-web/工程化/typescript.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+/**
+ * ts 参考资料
+ * 1. https://www.zhihu.com/column/c_206498766 知乎专栏
+ * 2. https://juejin.cn/post/6844904182843965453 ts教程
+ * 3. https://juejin.cn/post/6994102811218673700 类型解读
+ *
  */
 /**
  * 1. 这里总结一些遇到的问题
@@ -12,5 +11,5 @@
  *         npm list -g typescript 查看全局的 typescript 版本
  *         npm install  --save-dev typescript@next：指定当前目录编译版本
  *         自己的电脑没法推送GitHub，git remote set-url origin ssh 连接
- * 
+ *
   */

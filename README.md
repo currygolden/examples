@@ -24,6 +24,10 @@ some practice
 - http://zy2071.com/project-center/#/jueJinHot
 
 
+## css工具辅助
+- 常见布局案例 (https://juejin.cn/post/6844903574929932301)
+- flex 布局介绍 https://www.ruanyifeng.com/blog/2015/07/flex-grammar.html
+
 
 
 
@@ -80,6 +84,7 @@ some practice
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510
 
+### 阅读来源
 
 
 
@@ -98,6 +103,8 @@ some practice
 - 做配置型业务： quark-H5 | doring-H5 | form-generator
   1. https://github.com/JakHuang/form-generator
 - 接手过的项目 ops | m-bike | ml-bike
+- 营销领域 https://github.com/currygolden/mall4j
+- 低代码领域 https://github.com/jeecgboot
 
 
 ### 需要阅读的源码

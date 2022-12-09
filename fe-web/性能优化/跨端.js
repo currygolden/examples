@@ -57,3 +57,16 @@
  * https://xrender.fun/generator： react方向
  *
  */
+
+
+/**
+ * @description 开发跨平台小程序汇集
+ * 1. 滴滴mpx https://mpxjs.cn/
+ *  1.1 沉淀脚手架约定开发规范
+ *    开发一般cli 必要知识集合 vue-cli/vite/umi/vant-cli 等，以及mpx-cli
+ *    实践时参考阅读：https://juejin.cn/post/6932610749906812935
+ *    1. 必要的用户命令行信息收集交互
+ *    2. 常见命令行功能 create/dev/build/lint/install/generate/其它
+ *
+ *
+ */

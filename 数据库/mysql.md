@@ -77,3 +77,53 @@ RIGHT JOIN table3 t3
 ON t3.id = t2.id
 
 ```
+
+### GROUP BY
+- 根据属性对查询结果分类
+- SELECT中出现在主函数的字段必须出现在GROUP BY，反之可以没有
+```
+SELECT name,id,AVG(year)
+FROM table1
+GROUP BY name,id
+```
+
+### HAVING
+- 如果过滤条件出现主函数，需要使用HAVING替换WHERE
+- 此时HAVING需要在GROUP BY 的后面
+- 如果过滤条件没有出现主函数，尽量使用WHERE，效率更高
+```
+SELECT id,MAX(year)
+FROM table
+GROUP BY id
+HAVING MAX(year) > 1000
+```
+
+### 小结SELECT99语法一般写法
+- 明确一般SQL语句的书写顺讯
+- 对应书写顺讯应该是怎样的执行顺序
+- 执行从连表-过滤-分组-过滤-select-排序等流程
+```
+SELECT c1,c2,c3
+FROM table1 LEFT JOIN table2
+ON table1.id = table2.id
+WHERE 不包含聚合函数的过滤条件
+GROUP BY c1,c2
+HAVING 包含聚合函数的过滤条件
+ORDER BY
+LIMIT
+```
+
+### 子查询
+- 一段查询语句可以当类似变量条件
+- 通常可以通过自连接实现
+
+```
+SELECT year,height
+FROM table
+WHERE (
+    SELECT height
+    FROM table
+    WHERE year = 1000
+    ) > height
+```
+### 数据库常见表操作，语句操作

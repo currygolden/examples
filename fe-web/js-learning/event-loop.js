@@ -1,5 +1,8 @@
 /**
- * 算是异步场景的一个话题
+ * @description 事件循环
+ * 参考阅读
+ * https://juejin.cn/post/6966158666030383118
+ *
  * 1. 一个event loop有一个或者多个macrotask队列 setTimeout&I/O&UI rendering
  * 2. 不同的是一个event loop里只有一个microtask 队列 process.nextTick promises Object.observe MutationObserver
  * 3. 宏任务队列 & 微任务队列 & 执行栈（函数调用的过程分析）

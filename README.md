@@ -132,6 +132,13 @@ some practice
 - web端常见技术项目方法论积累
 
 
+### 开源社区借鉴
+- vant
+- didi https://github.com/didi
+- antd
+- vue
+
+
 
 ## 科学的学习方法
 ### 能把知识简单的给别人讲清楚就是有效学习，否则会陷入无意识的知识点收集阶段

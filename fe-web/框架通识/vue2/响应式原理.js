@@ -1,5 +1,6 @@
 /* https://ustbhuangyi.github.io/vue-analysis/v2/extend/tansition.html#entering
     https://juejin.cn/post/6974293549135167495 vue系列文章
+    https://juejin.cn/user/3104676570214286/posts vue系列文章2
   这里 打算准备一些亮点
 */
 
@@ -107,7 +108,22 @@ const p = new Proxy(person, {
 /**
  * 系统介绍vue响应式原理
  * 1. 什么是响应式
- *    1.1 将数据渲染到dom不是，从model到view也不是，数据的更新如何触发视图的修改
+ *    1.1 定义：数据的更新触发视图的修改，注意双向数据绑定这个词在官方文档没有出现，这个词不严谨
+ *    1.2 首先是将数据转为响应式数据，vue组件里的data函数返回的数据
+ *      1.2.1 vue实例初始化时候走 initState,其中包含initData,当然也有 props，watch，methods，computed
+ *      1.2.2 获取data函数返回的对象属性，遍历提供代理访问 this.data.a => this.a
+ *      1.2.3 之后执行observe(data),主要逻辑由Observer类实现
+ *      1.2.4 Observer类主要是添加__ob__属性（一个observer实例），其次是区分数组和对象的操作
+ *        1.2.4.1 对于对象，递归处理直到最后调用defineReactive，重写getter和setter
+ *        1.2.4.2 对于数组，调用observeArray，改写数组原型方法，对新增的元素做观测（一开始的观测和新增的观测）
+ *          数组为什么不类似对象，根据key(索引index)作观测，对象的修改是o(1),数组除了尾部修改其它会导致索引全部变化，全部重新观测，这就是所谓的性能
+ *      1.2.5 这样完整实现响应式数据
+ *
+ *
+ *
+ *
+ *
+ *
  *    1.2 响应式数据一般指data,props,计算属性，在初始化阶段做了一些处理，主要就是代理属性和响应式处理数据
  *        代理是指类似data和prop的访问形式，其实就是改写了set和get 方法，使其看起来是操作this
  *    1.3 处理props的响应式用的是 defineReactive，而处理data是通过 observe 方法

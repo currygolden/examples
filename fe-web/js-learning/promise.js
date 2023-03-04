@@ -1,9 +1,15 @@
 
 /*
 参考文章
-类似文章搜：promiseA+规范
-https://segmentfault.com/a/1190000018428848
+https://segmentfault.com/a/1190000018428848 promiseA+规范
+https://github.com/Sunny-117/js-challenges 一些promise训练
+1. 实现Promise
+2. async 函数特点
+3. 常见异步函数结果判断
+4. 常见异步方案实现总结
 */
+
+import { watch } from "fs"
 
 /**
  * @description 拆解promise主要流程
@@ -26,25 +32,26 @@ function Promise(executor) {
   that.status = PENDING
   that.value = undefined //fulfilled参数
   that.reason = undefined //rejected参数
-  that.successCallbacks = [] // success回调
+  that.successCallbacks = [] // success回调,对一个相同的promise then多次可以注册多个成功回调，fail类似
   that.failCallbacks = [] // fail回调
 
   /*
     1. 修改状态，处理返回值，处理回调
+    2. 这里对处理回调不够理解，通过then方法注册的回调，会在执行resolve时顺序执行一遍
   */
   function resolve (value) {
     if (that.status === PENDING) {
       that.status = FULFILLED
       // 获取resolve传入的参数
       that.value = value
-      // 执行回调
+      // 执行回调，参数都是resolve的值
       that.successCallbacks.forEach(cb => cb(that.value))
     }
   }
 
   function reject(reason) {
     if (that.status = 'pending'){
-      that.status = 'rejected'
+      that.status = REJECTED
       that.reason = reason
       that.failCallbacks.forEach(fn => fn(reason))
     }
@@ -65,6 +72,7 @@ function Promise(executor) {
  *    2.1 等待：收集相应的回调函数（push 队列），then的回调执行需要是微任务，所以用setTimeout包装
  *    2.2 成功/失败：都是异步执行，都需要判断then返回的promise与回调的返回值
  * 3. then方法返回的promise应该是什么状态，取决于回调函数自身（主动reject,抛错，其它大多都是resolve状态）
+ *    3.1 核心是处理then回调返回值的判断，一共三种情况
  *
  */
 Promise.prototype.then = (onFulfilled, onRejected) => {
@@ -95,7 +103,7 @@ Promise.prototype.then = (onFulfilled, onRejected) => {
       })
     } else {
       // 收集回调函数
-      self.onFulfilled.push(() => {
+      self.successCallbacks.push(() => {
         setTimeout(() => {
           try {
             let res = onFulfilled(self.value)
@@ -106,11 +114,22 @@ Promise.prototype.then = (onFulfilled, onRejected) => {
           }
         })
       })
+
+      self.failCallbacks.push(() => {
+        setTimeout(() => {
+            try {
+                let x = onRejected(self.reason);
+                resolvePromise(promise2, x, resolve, reject);
+            } catch (e) {
+                reject(e);
+            }
+        });
+    });
     }
   })
   return promise2
 }
-// 判断then返回的promsie与回调函数返回值，处理新的promise 的张泰
+// 判断then返回的promsie与回调函数返回值，处理新的promise 的状态
 function resolvePromise(promise2, res, resolve, reject) {
   let that = this
   // 区别then的返回值与回调的返回值
@@ -215,10 +234,7 @@ urls: 所有的待访问url
 要求最大并发数 maxNum
 每当有一个请求返回，就留下一个空位，可以增加新的请求
 所有请求完成后，结果按照 urls 里面的顺序依次打出
-
-
 思路： 并发请求跟promise.all无关  普通的循环都可以做到
-
 */
 async function multiRequest(urls, maxNum) {
   let result = new Array(urls.length).fill(false)
@@ -284,7 +300,7 @@ function myInterval(fn, a, b) {
  * async 函数注意点
  * 1. async 返回promise,值为函数的返回值
  * 2. 可以用来创建 promise 链，之后接catch/then
- * 3. await 后面接promise对象或者任意值均可
+ * 3. await 后面接promise对象或者任意值均可，非promise存在无法排队
  * 4. async函数返回的 Promise 对象，必须等到内部所有await命令后面的 Promise 对象执行完，才会发生状态改变，除非遇到return语句或者抛出错误。
  * 5. 一个await 抛出错误则整个async的状态为reject
  * 6. 处理多个串行await不阻塞，可以提前try catch 或者.catch,但是一般异步有依赖所以会提前中断，多个await可以try catch 捕获
@@ -304,3 +320,8 @@ async function test() {
   console.log(i); // 3
 }
 
+/**
+ * @description 异步并行调度管理
+ * 1. 同时最多K个任务运行
+ *
+ */

@@ -1,7 +1,7 @@
 /* 对于vue框架 需要了解的
 https://juejin.cn/post/6844903918753808398
 https://ustbhuangyi.github.io/vue-analysis/v2
-https://vue-js.com/learn-vue/
+https://vue-js.com/learn-vue/ (*****)
 https://juejin.cn/post/7043401297302650917
 https://www.zhihu.com/question/31809713/answer/53544875
 

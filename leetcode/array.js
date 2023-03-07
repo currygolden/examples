@@ -1,12 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2022-03-10 10:29:21
- * @LastEditTime: 2022-03-17 11:46:19
- * @LastEditors: Please set LastEditors
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /examples/leetcode/数据结构.js
- */
-
 /**
  * 参考阅读
  * 数组
@@ -155,7 +146,7 @@ Array.prototype.push = function(...val) {
   return newLen
 }
 /**
- * @description: 
+ * @description:
  * 1. idx支持负数，0 - len-1,大于len-1
  * 2. 会修改原数组
  * 3. 返回值为删除元素数组
@@ -174,7 +165,7 @@ Array.prototype.splice = function(idx, num, ...val) {
   if (idx < 0) idx = len + idx
   for (let k = 0; k < len; k++) {
     if (k in o) {
-      if (num === 0) 
+      if (num === 0)
       // 保留数据
       k < idx && pre.push(o[k])
       // 删除数据
@@ -187,8 +178,8 @@ Array.prototype.splice = function(idx, num, ...val) {
 }
 
 /**
- * 
- * 
+ *
+ *
  */
 
  function sortArray(arr1, arr2) {
@@ -214,5 +205,5 @@ Array.prototype.splice = function(idx, num, ...val) {
  * 53 和最大的连续子数组
  * 66 数组加1
  * 88 双指针合并有序数组
- * 
+ *
  */

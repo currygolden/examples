@@ -3,6 +3,8 @@
 SELECT * FROM table
 SELECT id FROM table
 ```
+#### mysql密码 
+- fish123
 
 ### 提供列的别名
 SELECT name, id, salary * 12 "year salary" FROM table

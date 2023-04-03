@@ -80,6 +80,8 @@ some practice
 - https://www.processon.com/view/link/61c53fb31efad45a2b42afd9#outline（一些文章汇总）
 - https://github.com/woai3c/introduction-to-front-end-engineering （介绍工程化配置）
 - https://juejin.cn/column/6992030342987120677 （有关编译和工程化）
+- https://github.com/xy-sea (体系化面试系列)
+- http://www.webgl3d.cn/pages/2de1b9/ （3D 技术系统学习）
 
 
 - 一些示例code，没什么价值 https://juejin.im/post/6873513007037546510

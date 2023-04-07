@@ -123,6 +123,7 @@ some practice
 - 刷题站点 https://fe.ecool.fun/
 - https://vue3js.cn/ (聚合类型文章)
 - https://juejin.cn/post/7098173433548111885
+- https://juejin.cn/post/7146973901166215176（面试体系化文章）
 
 ### 一些学习项目
 - 脚手架（工程化）：基本是vue-cli/umi/ice/vite 等等（企业的实现都是folk/修改）

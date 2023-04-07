@@ -2,6 +2,8 @@
  * @description 参考阅读资料
  * 1. https://www.nodejs.red/#/nodejs/base/what-is-nodejs
  * 2. https://www.bookstack.cn/read/Nodejs-Roadmap/_coverpage.md
+ * 3. http://doc.ssr-fc.com/ （ssr node 一体化方案）
+ * 4. https://midwayjs.org/docs/serverless/migrate_koa （midway node 全栈方案）
  */
 
 
@@ -53,5 +55,8 @@
  *        1.3.3 当中间件和next逻辑执行完，此时函数出栈，按照栈顺序执行next后的逻辑，如果有异步逻辑，同样按异步队列顺序执行
  *        1.3.4 边界场景兼容
  *    1.4 以单元测试和工程体系分析koa,输出思维导图
- *
+ * 2. node.js特性
+ *    2.1 Javascript 在服务端的运行环境，构建在 chrome 的 V8 引擎之上，基于事件驱动、非阻塞I/O模型，适合于 I/O 密集型的应用场景，高并发应用场景，不适用大量计算，CPU 耗时的操作
+ *    2.2 在多核 CPU 系统之上，可以用过 child_process.fork 开启多个进程
+ *    2.3 Javascript 是单线程，但是做为宿主环境的 Node.js 并非是单线程的
  */

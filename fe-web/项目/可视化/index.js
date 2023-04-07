@@ -4,6 +4,8 @@
  *   0.1 https://juejin.cn/post/6864072407461101582
  *   0.2 https://github.com/ZTStory/vue-datav(大屏可视化业务实现)
  *   0.3 https://github.com/AnsGoo/openDataV （大屏可视化拖拽实现，github搜索 大屏拖拽）
+ *   0.4 http://www.webgl3d.cn/pages/aac9ab/ （webgl 电子书教程）
+ *   0.5 https://threejs.org/examples/#webgl_animation_keyframes （three.js文档）
  * 1.why: 为什么要学习可视化方向
  *   1.1 建立职业护城河，在有一定价值的方向沉淀，避免长期低水平重复，也就是一般说的垂直领域深耕
  *   1.2 为什么选择这个方向，有什么商业策略以及数据支撑
@@ -20,7 +22,7 @@
  *      2.2.1.3 实践大屏可视化项目
  *    2.2.2 业务层面处理echarts核心在于响应式方案以及模块化组织图表属性
  *    2.2.3 大屏可视化拖拽项目
- *      2.2.3.1
+ *      2.2.3.1 项目feature拆分以及关键点梳理
  *
  *
  */

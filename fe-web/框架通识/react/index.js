@@ -1,6 +1,6 @@
 /**
  * @description react 学习总结
- * 1: 一些源码资料
+ * 1: 一些源码资料（社区资料收集阶段）
  *  https://7kms.github.io/react-illustration-series/main/macro-structure： 图解react
  *  https://react.iamkasong.com/ react 技术解密
  *  https://react.jokcy.me/book/api/react.html 源码系列
@@ -10,7 +10,14 @@
  *  antd站: react 综合生态
  *  umi: 业界领先脚手架
  *
+ *
+ * 2: 学习目标&时间规划
+ *   2.1 react方向及周边技术体系，沉淀典型业务场景实现（管理后台，H5，其它领域）
+ *   2.2 核心周边技术选型以及评价
+ *
  */
+
+
 
 /**
  * @description 一些工程场景

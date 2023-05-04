@@ -9,6 +9,8 @@
  *   0.5 https://threejs.org/examples/#webgl_animation_keyframes （three.js文档）
  *   0.6 https://github.com/wangyuan389/mall-cook 移动端/小程序拖拽实现
  *   0.7 https://github.com/myfirebug/bigscreen react可视化拖拽
+ *   0.8 http://doc.zyplayer.com/doc-wiki#/integrate/zyplayer-doc/opensource/360 在线文档
+ *   0.9 https://www.mtruning.club/ (样式还不错的低代码业务介绍)
  * 1.why: 为什么要学习可视化方向
  *   1.1 建立职业护城河，在有一定价值的方向沉淀，避免长期低水平重复，也就是一般说的垂直领域深耕
  *   1.2 为什么选择这个方向，有什么商业策略以及数据支撑

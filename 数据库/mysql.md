@@ -1,3 +1,14 @@
+### 登陆本地mysql服务器
+1. 安装启动mysql
+2. mac 上使用Sequel Pro 作为可视化数据库操作工具
+3. 在Sequel Pro使用sql文件创建并初始化表结构 file-import
+host： 127.0.0.1
+port： 3306
+username： root
+password：  111111
+
+
+
 ### 表中的所有字段
 ```
 SELECT * FROM table

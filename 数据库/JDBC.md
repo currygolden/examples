@@ -1,3 +1,10 @@
+#### mysql的安装
+- 基于系统版本安装5.7.x 
+- 设置brew 镜像源地址：https://zhuanlan.zhihu.com/p/90508170
+- 基于cdn地址 https://cdn.mysql.com/archives/mysql-5.7/mysql-5.7.17-macos10.12-x86_64.dmg
+- 初始密码：123456
+
+
 #### JDBC
 - java Database connectivity
 - 通用的SQL 数据库存取和操作的公共接口（一组api）,使用标准的方法，方便的访问不同数据库资源
@@ -13,3 +20,7 @@
 - 使用 PreparedStatement 进行数据库的CRUD
 -
 - 
+
+#### 事务
+- 什么是事务
+- 事务的特性

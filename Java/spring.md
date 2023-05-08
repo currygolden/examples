@@ -11,6 +11,7 @@
 
 - Ioc 操作Bean管理
   - 在Spring的IoC容器中，我们把所有组件统称为JavaBean，即配置一个组件就是配置一个Bean。
+  - Bean 代指的就是那些被 IoC 容器所管理的对象
   - Bean的配置格式，就代表了组件之间的组合使用关系，而IoC会根据反射正确读取
   - 根据xml配置（繁琐）
   - 使用Annotation配置，让Spring自动扫描Bean并组装它们

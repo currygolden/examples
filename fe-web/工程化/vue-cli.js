@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2022-03-05 12:32:18
- * @LastEditTime: 2022-06-01 09:58:43
- * @LastEditors: Please set LastEditors
- * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: /examples/fe-web/工程化/vue-cli.js
- */
 /**
  * 1. 比较好的cli工具，可借鉴可拓展
  *  1.1 cli可以基于内核管理，将流程标准化

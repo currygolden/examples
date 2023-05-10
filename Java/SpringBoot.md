@@ -59,13 +59,15 @@ Spring Boot 中的第三方日志框架有哪些？
     - 装配是否生效
 
 ### 常见注解说明
-1. @Configuration：告诉 Spring 这个类是一个配置类，需要被 Spring 容器扫描并处理其中的 Bean 定义
-2. @AllArgsConstructor：处理class构造方法的声明，从而实现参数的自动装配（减少重复代码量），如果是public修饰符，且该类必须带有一个默认构造方法
+1. spring boot注解
+   1. 
+2. @Configuration：告诉 Spring 这个类是一个配置类，需要被 Spring 容器扫描并处理其中的 Bean 定义
+3. @AllArgsConstructor：处理class构造方法的声明，从而实现参数的自动装配（减少重复代码量），如果是public修饰符，且该类必须带有一个默认构造方法
    1. 如果是私有变量，需要定义setter/getter，这种大量重复工作由注解实现，此注解主要完善构造函数部分
    2. final修饰的变量不可修改
-3. @PropertySource("classpath:admin.properties")： 从哪个路径加载属性，在初始赋值使用
-4. @ConfigurationProperties：读取属性时配置属性的特征比如前缀等
-5. @data：实现class属性的自定义拓展，可以生成setter/getter以及常见方法拓展
+4. @PropertySource("classpath:admin.properties")： 从哪个路径加载属性，在初始赋值使用
+5. @ConfigurationProperties：读取属性时配置属性的特征比如前缀等
+6. @Data：实现class属性的自定义拓展，可以生成setter/getter以及常见方法拓展，避免重复代码书写
 
 
 
@@ -82,10 +84,11 @@ Spring Boot 中的第三方日志框架有哪些？
    5. Spring Boot 应用的常见配置方式主要有两种：application.yml 和 application.properties。（应用级别的配置文件）
    6. @PropertySource 和 @ConfigurationProperties两种属性注入的方式
 #### 有关mybatis
-1. 实体层（entity）:看起来是描述数据库表结构，一张表对应一个实体（？）
+一般开发流程描述如下
+1. 定义实体层（entity）:看起来是描述数据库表结构，一张表对应一个实体（？）
 2. DAO层：定义接口层，有哪些方式可以访问数据库（ DAO 层进行数据存储和查询等操作，操作数据库的地方）
-    1. 在mybatis-plus框架里，DAO操作数据逻辑继承于基类和自定义实现
-    2. 自定义实现可以是xxxDao.xml的文件，也可以在DAO文件里基于注解
+    1. 在mybatis-plus框架里，DAO操作数据逻辑继承于基类和自定义实现，基类里实现了常见的CRUD操作，而自定义部分结合业务需求
+    2. 自定义实现可以是xxxDao.xml的文件（在resource文件夹下），也可以在DAO文件里基于注解
 3. service层：调用DAO的接口，处理一些业务逻辑（数据的整理，主要业务逻辑区域）
     1. 这里是具体描述业务逻辑的地方，是消费DAO的模块
     2. 一般会统一定义接口，然后提供实现类
@@ -108,3 +111,4 @@ https://gitee.com/liner123/newgulimall （项目实践）
         配置类本身也是组件
         proxyBeanMethods参数有什么用？什么是full,lite模式
     6.2 @import：往容器中添加组件，区别是名称是全路径
+7. 常见的系统权限怎么做的，用了哪些框架

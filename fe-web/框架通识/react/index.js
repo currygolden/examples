@@ -10,8 +10,16 @@
  *  https://juejin.cn/column/6961274930306482206 react技术专栏
  *  https://juejin.cn/post/6844903985338400782 hooks介绍&项目实例
  *  https://github.com/LANIF-UI/dva-boot-admin class组件历史 react 业务
+ *  https://github.com/hustcc/echarts-for-react react封装echarts组件例子
  *  https://github.com/HalseySpicy/Hooks-Admin  hooks admin案例
+ *    1. admin 业务项目常见模块整理
+ *    2. 业务模版，组件沉淀，工具沉淀
+ *    3. 前端业务一般实现
  *  https://github.com/didi/react-tmap 对js库的业务封装
+ *    1. 常见hooks api使用，基于js/api封装业务逻辑
+ *    2. 组件库打包构建方法
+ *    3. 组件库文档方案
+ *    4. 完善第三方类型声明文件
  *  antd站: react 综合生态
  *  umi: 业界领先脚手架
  *  ice: 案例借鉴
@@ -149,10 +157,14 @@
 /**
  * @description: 项目练手计划（刻意练习有目的）
  * 1. 常见组件hooks方案实现
+ *    1.1 封装腾讯地图组件
+ *    1.2 封装echarts业务组件
  * 2. antd常见组件实现
  * 3. ahooks实现
  * 4. hooks-admin业务丰富
+ *    1. hooks-admin/16.x之前admin
  * 5. 移动端实现
+ *    1. chatgpt项目实现
  *
  *
  */

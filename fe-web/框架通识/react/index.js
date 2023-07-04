@@ -3,26 +3,31 @@
  * 1: 一些源码资料（社区资料收集阶段）
  *  1.1框架变化的无非是api层面，组件化设计，代码设计思想是不变的，对业务场景的抽象是可复用的
  *    对框架的学习最好是能沉淀一些可复用的思想，设计思路
+ * ======= 理论解析 框架分析 ==========
  *  https://7kms.github.io/react-illustration-series/main/macro-structure： 图解react
  *  https://react.iamkasong.com/ react 技术解密
  *  https://react.jokcy.me/book/api/react.html 源码系列
- *  https://ahooks.js.org/zh-CN 多场景下的hooks
  *  https://juejin.cn/column/6961274930306482206 react技术专栏
  *  https://juejin.cn/post/6844903985338400782 hooks介绍&项目实例
+ *
+========== hooks 沉淀逻辑复用 =======
+ *  https://ahooks.js.org/zh-CN 多场景下的hooks
+ *  https://github.com/streamich/react-use hooks方案
+ *
+========== 业务组件封装/组件化设计 ===========
+    https://github.com/didi/react-tmap（地图组件）
+    https://github.com/hustcc/echarts-for-react react封装echarts组件例子
+
+
+========== admin 业务模版 工程物料 ===========
  *  https://github.com/LANIF-UI/dva-boot-admin class组件历史 react 业务
- *  https://github.com/hustcc/echarts-for-react react封装echarts组件例子
  *  https://github.com/HalseySpicy/Hooks-Admin  hooks admin案例
- *    1. admin 业务项目常见模块整理
- *    2. 业务模版，组件沉淀，工具沉淀
- *    3. 前端业务一般实现
- *  https://github.com/didi/react-tmap 对js库的业务封装
- *    1. 常见hooks api使用，基于js/api封装业务逻辑
- *    2. 组件库打包构建方法
- *    3. 组件库文档方案
- *    4. 完善第三方类型声明文件
+
+============= 综合工程化生态 =============
  *  antd站: react 综合生态
  *  umi: 业界领先脚手架
  *  ice: 案例借鉴
+ *  didi 等
  *
  * 2: 学习目标&时间规划
  *   2.1 react方向及周边技术体系

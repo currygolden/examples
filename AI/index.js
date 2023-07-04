@@ -2,6 +2,9 @@
  * @description: 一些AI领域有意思的项目尝试
  *  1.
  *  2. langchainjs
+ *  3. 一些可以使用的AI网站
+ *    3.1 https://b7bot2.skybyte.me/#/chat/1688437579712
+ *    3.2 https://fish.aitianhu.top/#/chat/1002
  *
  */
 

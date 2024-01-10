@@ -847,7 +847,7 @@ function generateTree(pre, mid) {
  * root代表二叉树
  */
   function preOrderTree(root, result = []) {
-    if (root.length === 0) return
+    if (!root) return
     result.push(root.value)
     preOrderTree(root.left)
     preOrderTree(root.right)

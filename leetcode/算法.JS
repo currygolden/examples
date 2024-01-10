@@ -223,9 +223,27 @@ function merge(left, right) {
  * 3. 判断二叉树是否镜像
  * 4. 判断二叉树是否轴对称
  * 5. 实现二叉树的翻转
-
+ * 6. 二叉树的层序遍历
+ * 7. 获得二叉树的镜像
  */
 
+/**
+ * 获得二叉树的镜像结果
+ * 1. 递归获得左子树的镜像
+ * 2. 递归获得右子树的镜像
+ * 3. 将左右子树交换
+ * 4. 边界条件
+ */
+function getMirrowTree(root) {
+  if (!root) return
+
+  const leftMirrow = getMirrowTree(root.left)
+  const rightMirrow = getMirrowTree(root.right)
+
+  root.left = rightMirrow
+  root.right = leftMirrow
+  return root
+}
 
 /**
  * @description: 字符串

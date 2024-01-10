@@ -5,6 +5,7 @@
  *  3. 一些可以使用的AI网站
  *    3.1 https://b7bot2.skybyte.me/#/chat/1688437579712
  *    3.2 https://fish.aitianhu.top/#/chat/1002
+ *    3.3 https://github.com/SunshowerC/blog/issues/19
  *
  */
 

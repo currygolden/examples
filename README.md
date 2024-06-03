@@ -1,11 +1,3 @@
-<!--
- * @Author: your name
- * @Date: 2021-06-09 16:40:40
- * @LastEditTime: 2022-08-06 23:41:05
- * @LastEditors: liyu38 liyu38@meituan.com
- * @Description: In User Settings Edit
- * @FilePath: /examples/README.md
--->
 # examples
 some practice 
 - 实现一些框架脚本功能
@@ -127,6 +119,7 @@ some practice
 - https://vue3js.cn/ (聚合类型文章)
 - https://juejin.cn/post/7098173433548111885
 - https://juejin.cn/post/7146973901166215176（面试体系化文章）
+- https://vue3js.cn/interview/（面试合集）
 
 ### 一些学习项目
 - 脚手架（工程化）：基本是vue-cli/umi/ice/vite 等等（企业的实现都是folk/修改）
@@ -143,6 +136,9 @@ some practice
 - didi https://github.com/didi
 - antd
 - vue
+
+#### 一些有触动的作者
+- https://github.com/guangzhengli
 
 
 

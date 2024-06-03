@@ -1,5 +1,5 @@
 - MVC 
-    mode: 处理数据 javaBean, 主要有2类 实体类&业务处理类
+    model: 处理数据
     view: 视图层
     controller： 处理请求的接受和响应
     MVC的工作流程

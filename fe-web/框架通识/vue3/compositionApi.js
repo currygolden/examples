@@ -1,25 +1,17 @@
 /**
- * @description vue3 核心知识体系与工程物料
- * 1. vue3 文档 https://vuejs.org/ 及周边生态
- *  1.2 vueuse
- *  1.3. vite
- * 2. 技术方案选型 2.x 3.x 版本
- *  2.1 组合式api带来的逻辑可复用性，核心思想是从多个函数中得到的状态组合起来处理复杂问题
- *  2.2 更好的typescript支持
- *  2.3 组件开发对比(主要介绍3.x的组件开发)
- *    2.3.1 <script setup> 带来的改变
- *    2.3.2 自定义组件本身的输入输出设计
- *      在2.x里可以使用value.sync监听组件的输入输出，但是3.x里此api废弃主要是保持风格一致
- *      在3.x里统一使用v-model:myProp来做双向绑定，组件本身通过myProp获取值，通过监听update:myProp做输出
- *      如果没有参数比如v-model=“xxx”,实际会默认使用modelValue
- *      v-mode支持修饰符，支持参数+修饰符，这些都是编译的语法糖
- *  2.4 其它语法，api是否向3.x靠近
- *    2.4.1 本质上最核心的还是组件化设计的思想，以及代码组织结构，基建的完善性
- *    2.4.2 3.x更好的ts支持，升级3考虑到整体成本，本质上没有多大区别
- * 3. 在vue2.x里使用composition api,使用vueuse
- *    3.1 主要目的是在2.x的vue里使用setup，以及其它的composition api，典型的比如vueuse
- *    3.2 安装符合版本的依赖，Vue.use(composition)
- *    3.3 工具库基建（社区）+ 自身业务特征
+ * 1. 一些参考阅读资料
+ * 1.1 https://vant-ui.github.io/vant/#/zh-CN（vant 组件库）
+ * 1.2 vue.js 文档
+ * 1.3 一些 vue 开发教程 https://cloud.tencent.com/developer/article/2305659
+ * 2. 关于响应式的介绍
+ *  2.1 ref 和 reactive的使用场景和区别
+ *    2.1.1 ref 满足多数响应式场景，reactive在赋值，解构等方面有局限性
+ *    2.1.2 具体细节在于实现响应式逻辑的差异，有按值传递，按引用传递
+ *  2.2 watch 的使用有哪些策略
+ *  2.3 新版 slot 语法怎么理解
+ *    2.3.1 插槽的数据传递，使用调用方数据，使用定义方数据
+ *    2.3.2 动态插槽的定义和调用，缩写语法
+ *    2.3.3 写在组件上的v-slot语法是什么意思
  *
  *
  *

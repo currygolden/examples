@@ -1,5 +1,7 @@
-- nacos: 管理其它服务的组册与配置
+- nacos: 管理其它服务的注册与配置
   - 使用nacos作为服务的注册发现与配置中心
 - openFeign: 微服务之间的远程相互调用
   - 使用http 请求调用其它服务
 - gateway: client与服务之间存在网关，做一些公共的事情，流量，日志，负载等
+- renren-security: 基础的管理系统全栈方案
+  - 其中renren-generator可以基于一张表快速生成前后端CURD代码框架

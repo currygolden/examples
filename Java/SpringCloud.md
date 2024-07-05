@@ -1,3 +1,4 @@
+- 参考地址：https://github.com/alibaba/spring-cloud-alibaba
 - nacos: 管理其它服务的注册与配置
   - 使用nacos作为服务的注册发现与配置中心
 - openFeign: 微服务之间的远程相互调用

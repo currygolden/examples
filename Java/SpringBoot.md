@@ -112,3 +112,6 @@ https://gitee.com/liner123/newgulimall （项目实践）
         proxyBeanMethods参数有什么用？什么是full,lite模式
     6.2 @import：往容器中添加组件，区别是名称是全路径
 7. 常见的系统权限怎么做的，用了哪些框架
+8. java 工程下的yml和bootstrap文件有什么区别
+   1. 加载顺序：bootstrap.yml比application.yml先加载，因此可以用来配置应用程序启动时必须的配置，如配置中心的地址、加密密钥等。
+   2. 功能定位：application.yml用于业务相关的配置，而bootstrap.yml用于系统级别的配置。
